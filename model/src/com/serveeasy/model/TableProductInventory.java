@@ -6,9 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: cristian.popovici
+ * Represnts an active table inventory.
+ * The inventory keeps the current products added to a table.
+ * The inventory is active when the table get activated and
+ * becomes inactive when the table get deactivated.
+ * <p/>
  * Date: Nov 9, 2010
- * Time: 4:18:01 PM
  */
 class TableProductInventory {
 

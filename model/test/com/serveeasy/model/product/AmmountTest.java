@@ -7,12 +7,6 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Locale;
 
-/**
- * User: cristian.popovici
- * Date: Nov 9, 2010
- * Time: 2:48:17 PM
- */
-
 public class AmmountTest extends TestCase {
 
     private Currency currency = Currency.getInstance(Locale.UK);

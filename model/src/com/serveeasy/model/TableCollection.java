@@ -6,7 +6,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * User: cristian.popovici
+ * Holds tables and index them by a unique number assign to it.
+ * Mostly a table collection will be available for an area.
+ * <p/>
  * Date: Nov 9, 2010
  * Time: 10:28:02 AM
  */

@@ -1,15 +1,13 @@
 package com.serveeasy.model.product;
 
-import net.jcip.annotations.Immutable;
-
 import java.math.BigDecimal;
 import java.util.Currency;
 
 /**
- * We opperate with Amount object to represent amounts of money. Amount object holds also the currency.
- * Operations should be possible only for same currency.
+ * We opperate with Amount object to represent amounts of money.
+ * Amount object holds also the currency. Operations should be
+ * possible only for same currency.
  */
-@Immutable
 public final class Amount {
 
     private final String currency;

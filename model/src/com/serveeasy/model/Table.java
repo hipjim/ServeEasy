@@ -7,15 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * User: cristian.popovici
+ * Models a table.
+ * <p/>
  * Date: Nov 9, 2010
- * Time: 10:20:02 AM
  */
 public final class Table implements Serializable {
 
     private final int capacity;
     private TableStatus tableStats;
-
     private TableProductInventory inventory;
 
     private List<TableActivationObserver> activationObserverList;

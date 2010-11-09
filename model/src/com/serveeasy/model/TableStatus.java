@@ -1,9 +1,9 @@
 package com.serveeasy.model;
 
 /**
- * User: cristian.popovici
+ * Possible states enumeration for a {@link com.serveeasy.model.Table} object.
+ * <p/>
  * Date: Nov 9, 2010
- * Time: 10:20:28 AM
  */
 public enum TableStatus {
 
