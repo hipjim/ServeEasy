@@ -1,5 +1,6 @@
 package com.serveeasy.model;
 
+import com.serveeasy.model.context.Context;
 import junit.framework.TestCase;
 
 import java.util.Currency;

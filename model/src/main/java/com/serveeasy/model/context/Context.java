@@ -1,4 +1,4 @@
-package com.serveeasy.model;
+package com.serveeasy.model.context;
 
 import java.util.Currency;
 import java.util.Locale;

@@ -1,6 +1,6 @@
 package com.serveeasy.model.product;
 
-import com.serveeasy.model.Context;
+import com.serveeasy.model.context.Context;
 
 import java.math.BigDecimal;
 import java.util.Currency;
