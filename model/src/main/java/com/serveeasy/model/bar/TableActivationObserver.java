@@ -1,4 +1,4 @@
-package com.serveeasy.model;
+package com.serveeasy.model.bar;
 
 /**
  * User: cristian.popovici

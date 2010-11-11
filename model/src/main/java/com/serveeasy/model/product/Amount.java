@@ -1,5 +1,7 @@
 package com.serveeasy.model.product;
 
+import com.serveeasy.model.Context;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 
@@ -13,7 +15,6 @@ public final class Amount {
     private final String currency;
     private BigDecimal amount;
 
-
     private Amount(final Currency currency) {
         this.currency = currency.toString();
         this.amount = BigDecimal.ZERO;
@@ -24,12 +25,16 @@ public final class Amount {
         this.amount = amount;
     }
 
-    public static Amount newAmount(final Currency currency) {
-        return new Amount(currency);
+    public static Amount newAmount() {
+        return new Amount(Context.get().getCurrency());
     }
 
-    public static Amount newAmount(final Currency currency, final Double initialAmount) {
-        return new Amount(currency, BigDecimal.valueOf(initialAmount));
+    public static Amount newAmount(final Integer initialAmount) {
+        return newAmount(Double.valueOf(initialAmount));
+    }
+
+    public static Amount newAmount(final Double initialAmount) {
+        return new Amount(Context.get().getCurrency(), BigDecimal.valueOf(initialAmount));
     }
 
     public BigDecimal getAmount() {
@@ -41,7 +46,7 @@ public final class Amount {
     }
 
     public void add(Amount amount) {
-        if (this.currency.equals(amount.getCurrency())) {
+        if (!this.currency.equals(amount.getCurrency())) {
             throw new IllegalStateException("Cannot add amounts with different currencyies");
         }
 
@@ -49,11 +54,15 @@ public final class Amount {
     }
 
     public void substract(Amount amount) {
-        if (this.currency.equals(amount.getCurrency())) {
+        if (!this.currency.equals(amount.getCurrency())) {
             throw new IllegalStateException("Cannot add amounts with different currencyies");
         }
 
         this.amount = this.amount.subtract(amount.getAmount());
+    }
+
+    public void multiplyBy(int nr) {
+        this.amount = this.amount.multiply(BigDecimal.valueOf(nr));
     }
 
     public void add(BigDecimal amount) {

@@ -1,4 +1,4 @@
-package com.serveeasy.model;
+package com.serveeasy.model.bar;
 
 import com.serveeasy.model.product.Product;
 
@@ -67,5 +67,9 @@ public final class Table implements Serializable {
 
     public boolean isActive() {
         return TableStatus.ACTIVE.equals(tableStats);
+    }
+
+    TableProductInventory getInventory() {
+        return inventory;
     }
 }

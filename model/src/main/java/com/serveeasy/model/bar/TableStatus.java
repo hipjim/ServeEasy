@@ -1,7 +1,7 @@
-package com.serveeasy.model;
+package com.serveeasy.model.bar;
 
 /**
- * Possible states enumeration for a {@link com.serveeasy.model.Table} object.
+ * Possible states enumeration for a {@link Table} object.
  * <p/>
  * Date: Nov 9, 2010
  */

@@ -1,5 +1,6 @@
-package com.serveeasy.model;
+package com.serveeasy.model.bar;
 
+import com.serveeasy.model.product.Amount;
 import com.serveeasy.model.product.Product;
 
 import java.util.HashMap;
@@ -13,10 +14,11 @@ import java.util.Map;
  * <p/>
  * Date: Nov 9, 2010
  */
-class TableProductInventory {
+final class TableProductInventory {
 
     private final Map<Product, ProductCount> cache;
     private State state;
+    private Amount pendingPayment;
 
     TableProductInventory() {
         state = State.ACTIVE;
@@ -60,6 +62,10 @@ class TableProductInventory {
 
         void decrese() {
             count--;
+        }
+
+        public int getCount() {
+            return count;
         }
     }
 

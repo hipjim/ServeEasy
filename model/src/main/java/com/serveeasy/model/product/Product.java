@@ -7,5 +7,11 @@ public interface Product {
 
     String getName();
 
-    Amount getPrice();
+    String getDescription();
+
+    Category getCategory();
+
+    Amount getSellPrice();
+
+    Amount getEntryPrice();
 }
