@@ -1,7 +1,9 @@
-package com.visma.serveeasy.model.exceptions;
+package com.serveeasy.model.exceptions;
 
 /**
- * User: cristian.popovici
+ * Exception encapsulates an eror that needs to pass it's message to the user.
+ * Basically it keeps a user message string.
+ * <p/>
  * Date: Nov 17, 2010
  * Time: 7:54:40 PM
  */

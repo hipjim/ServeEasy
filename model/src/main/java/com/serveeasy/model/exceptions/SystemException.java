@@ -1,7 +1,7 @@
-package com.visma.serveeasy.model.exceptions;
+package com.serveeasy.model.exceptions;
 
 /**
- * User: cristian.popovici
+ * 
  * Date: Nov 17, 2010
  * Time: 7:51:56 PM
  */
