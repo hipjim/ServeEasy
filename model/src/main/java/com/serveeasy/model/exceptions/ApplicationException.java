@@ -1,7 +1,7 @@
 package com.serveeasy.model.exceptions;
 
 /**
- * Abstract checked exception
+ * Abstract checked exception 
  * <p/>
  * User: cristian.popovici
  * Date: Nov 17, 2010
