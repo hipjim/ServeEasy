@@ -1,6 +1,5 @@
 package com.serveeasy.model.bar;
 
-import com.google.common.base.Preconditions;
 import com.serveeasy.model.product.Product;
 
 import java.io.Serializable;
@@ -21,8 +20,6 @@ public final class Table implements Serializable {
     private final List<TableActivationObserver> activationObserverList;
 
     public Table(int capacity) {
-        Preconditions.checkArgument(capacity <= 0, "Capacity must be at least 1");
-
         tableStats = TableStatus.INACTIVE;
         this.capacity = capacity;
         activationObserverList = new ArrayList<TableActivationObserver>();
