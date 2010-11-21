@@ -1,5 +1,6 @@
 package com.serveeasy.model.bar;
 
+import com.google.common.base.Preconditions;
 import com.serveeasy.model.product.Product;
 
 import java.io.Serializable;
@@ -15,14 +16,12 @@ public final class Table implements Serializable {
 
     private final int capacity;
     private TableStatus tableStats;
-    private TableProductInventory inventory;
+    private TableProductHolder productHolder;
 
-    private List<TableActivationObserver> activationObserverList;
+    private final List<TableActivationObserver> activationObserverList;
 
     public Table(int capacity) {
-        if (capacity <= 0) {
-            throw new IllegalArgumentException("Capacity must be at least 1");
-        }
+        Preconditions.checkArgument(capacity <= 0, "Capacity must be at least 1");
 
         tableStats = TableStatus.INACTIVE;
         this.capacity = capacity;
@@ -40,7 +39,7 @@ public final class Table implements Serializable {
 
         tableStats = TableStatus.ACTIVE;
 
-        inventory = new TableProductInventory();
+        productHolder = new TableProductHolder();
 
         for (TableActivationObserver observer : activationObserverList) {
             observer.onActivation(this);
@@ -54,7 +53,7 @@ public final class Table implements Serializable {
 
         tableStats = TableStatus.INACTIVE;
 
-        inventory.close();
+        productHolder.close();
 
         for (TableActivationObserver observer : activationObserverList) {
             observer.onDeactivation(this);
@@ -62,14 +61,14 @@ public final class Table implements Serializable {
     }
 
     public void addProduct(Product product) {
-        inventory.addProduct(product);
+        productHolder.addProduct(product);
     }
 
     public boolean isActive() {
         return TableStatus.ACTIVE.equals(tableStats);
     }
 
-    TableProductInventory getInventory() {
-        return inventory;
+    TableProductHolder getProductHolder() {
+        return productHolder;
     }
 }

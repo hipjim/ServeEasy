@@ -26,6 +26,7 @@ public abstract class AbstractTestCase extends TestCase {
         super.tearDown();
     }
 
+
     private Context getContext() {
         Locale locale = Locale.UK;
         Currency currency = Currency.getInstance(locale);

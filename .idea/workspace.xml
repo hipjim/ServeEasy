@@ -60,46 +60,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TableCollection.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCollection.java">
+      <file leaf-file-name="ProductOrder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/ProductOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="25" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Context.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/context/Context.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="36" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/ProductTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="11" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/product/CategoryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="45" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractTestCase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/AbstractTestCase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+            <state line="12" column="15" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,7 +72,16 @@
       <file leaf-file-name="Table.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="4" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0">
+            <state line="14" column="19" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableActivationObserver.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableActivationObserver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,34 +90,61 @@
       <file leaf-file-name="TableCalculator.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
+            <state line="27" column="56" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Amount.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Amount.java">
+      <file leaf-file-name="TableCollection.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="15" selection-start="1810" selection-end="1814" vertical-scroll-proportion="0.0">
+            <state line="20" column="8" selection-start="477" selection-end="477" vertical-scroll-proportion="5.8627453">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TableProductInventory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableProductInventory.java">
+      <file leaf-file-name="List.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.6.0_17/src.zip!/java/util/List.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="19" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.0">
+            <state line="407" column="6" selection-start="18718" selection-end="18718" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TableStatus.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableStatus.java">
+      <file leaf-file-name="UserException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/UserException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="12" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
+            <state line="5" column="3" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultProduct.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultProduct.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="37" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultCategory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultCategory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="19" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Product.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Product.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="23" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,22 +164,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Product.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/MockProduct.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Category.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultProduct.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultCategory.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/Table.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/TableProductInventory.java" />
-        <option value="$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/product/AmmountTest.java" />
-        <option value="$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/product/CategoryTest.java" />
         <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/Context.java" />
         <option value="$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/ProductTest.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/Table.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableProductInventory.java" />
         <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Amount.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCalculator.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/AbstractTestCase.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableProductInventory.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/Table.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/ProductOrder.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableProductHolder.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/visma/serveeasy/model/exceptions/ApplicationException.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/visma/serveeasy/model/exceptions/UserException.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/visma/serveeasy/model/exceptions/UserMessageHolder.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/visma/serveeasy/model/exceptions/SystemException.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/SystemException.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/ApplicationException.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCalculator.java" />
       </list>
     </option>
   </component>
@@ -201,6 +201,30 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="ServeEasy" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="ServeEasy" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -243,8 +267,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Favorites" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -322,7 +344,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -330,7 +352,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="product" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,6 +379,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exceptions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -390,8 +416,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServeEasy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServeEasy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,9 +467,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -695,28 +753,28 @@
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1296" height="776" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24907975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1601626" sideWeight="0.59334767" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26585367" sideWeight="0.59334767" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12764227" sideWeight="0.18691589" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.80472106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39875388" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24796748" sideWeight="0.18691589" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.8021807" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39870688" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -754,19 +812,19 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultProduct.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="51" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" />
+        <state line="13" column="13" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultCategory.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Amount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="38" selection-start="904" selection-end="904" vertical-scroll-proportion="-14.88" />
+        <state line="62" column="39" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableActivationObserver.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/SystemException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" />
+        <state line="3" column="3" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Category.java">
@@ -774,70 +832,68 @@
         <state line="8" column="17" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Product.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/ApplicationException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="17" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" />
+        <state line="3" column="30" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/product/AmmountTest.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/UserMessageHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="49" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" />
+        <state line="8" column="24" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCollection.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/ProductOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="25" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/ProductTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="11" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/product/CategoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="45" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" />
+        <state line="12" column="15" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="4" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0" />
+        <state line="14" column="19" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Amount.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableActivationObserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="15" selection-start="1810" selection-end="1814" vertical-scroll-proportion="0.0">
+        <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/exceptions/UserException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="3" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultProduct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="37" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/DefaultCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/product/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_17/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="407" column="6" selection-start="18718" selection-end="18718" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableProductInventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="19" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="12" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
+        <state line="27" column="56" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/test/java/com/serveeasy/model/AbstractTestCase.java">
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/bar/TableCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/serveeasy/model/context/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="36" vertical-scroll-proportion="0.0">
+        <state line="20" column="8" selection-start="477" selection-end="477" vertical-scroll-proportion="5.8627453">
           <folding />
         </state>
       </provider>

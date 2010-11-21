@@ -1,7 +1,6 @@
 package com.serveeasy.model.bar;
 
 import com.serveeasy.model.product.Amount;
-import com.serveeasy.model.product.Product;
 
 /**
  * User: cristian.popovici
@@ -11,27 +10,25 @@ import com.serveeasy.model.product.Product;
 public class TableCalculator {
 
     private final Table table;
-    private final TableProductInventory inventory;
+    private final TableProductHolder inventory;
 
     public TableCalculator(Table table) {
         this.table = table;
-        this.inventory = table.getInventory();
+        this.inventory = table.getProductHolder();
     }
 
     public Amount getPendingMoney() {
-        Amount amount = Amount.newAmount();
+        final Amount amount = Amount.newAmount();
 
-        for (Product product : inventory.listProducts().keySet()) {
-            final TableProductInventory.ProductCount count = inventory.listProducts().get(product);
-            final Amount price = product.getSellPrice();
-            price.multiplyBy(count.getCount());
-            amount.add(price);
+        for (ProductOrder order : inventory.listProducts()) {
+            if (order.isPayed()) {
+                continue;
+            }
+
+            amount.add(order.getProduct().getSellPrice());
         }
 
         return amount;
     }
 
-    public void pay(Amount amount) {
-
-    }
 }
