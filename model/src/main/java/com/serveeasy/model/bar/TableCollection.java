@@ -20,11 +20,13 @@ public final class TableCollection {
     private TableSequence sequence;
 
     public TableCollection() {
+        sequence = new TableSequence();
         this.tableSet = new HashSet<Table>();
         tableIndex = new HashMap<Integer, Table>();
     }
 
     public TableCollection(Set<Table> tables) {
+        sequence = new TableSequence();
         this.tableSet = new HashSet<Table>();
         tableIndex = new HashMap<Integer, Table>();
 
@@ -63,6 +65,14 @@ public final class TableCollection {
         }
 
         return activeTable;
+    }
+
+    public boolean contains(Table table) {
+        if (this.tableSet.contains(table)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private static class TableSequence {

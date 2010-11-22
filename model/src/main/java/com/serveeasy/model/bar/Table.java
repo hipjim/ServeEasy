@@ -16,11 +16,19 @@ public final class Table implements Serializable {
     private final int capacity;
     private TableStatus tableStats;
     private TableProductHolder productHolder;
+    private String tableName;
 
     private final List<TableActivationObserver> activationObserverList;
 
     public Table(int capacity) {
         tableStats = TableStatus.INACTIVE;
+        this.capacity = capacity;
+        activationObserverList = new ArrayList<TableActivationObserver>();
+    }
+
+    public Table(int capacity, String tableName) {
+        tableStats = TableStatus.INACTIVE;
+        this.tableName = tableName;
         this.capacity = capacity;
         activationObserverList = new ArrayList<TableActivationObserver>();
     }
@@ -67,5 +75,13 @@ public final class Table implements Serializable {
 
     TableProductHolder getProductHolder() {
         return productHolder;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 }
