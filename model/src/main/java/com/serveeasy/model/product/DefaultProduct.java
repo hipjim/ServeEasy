@@ -10,10 +10,10 @@ public final class DefaultProduct implements Product {
     private final String name;
     private final String description;
     private final Category category;
-    private final Amount sellPrice;
-    private final Amount entryPrice;
+    private final Money sellPrice;
+    private final Money entryPrice;
 
-    public DefaultProduct(String name, String description, Category category, Amount sellPrice, Amount entryPrice) {
+    public DefaultProduct(String name, String description, Category category, Money sellPrice, Money entryPrice) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -33,11 +33,11 @@ public final class DefaultProduct implements Product {
         return category;
     }
 
-    public Amount getSellPrice() {
+    public Money getSellPrice() {
         return sellPrice;
     }
 
-    public Amount getEntryPrice() {
+    public Money getEntryPrice() {
         return entryPrice;
     }
 }

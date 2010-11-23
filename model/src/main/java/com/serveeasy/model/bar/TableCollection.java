@@ -55,6 +55,10 @@ public final class TableCollection {
         return tableIndex.get(index);
     }
 
+    public Set<Table> getTables() {
+        return tableSet;
+    }
+
     public Set<Table> getActiveTables() {
         Set<Table> activeTable = new HashSet<Table>();
 
@@ -74,6 +78,7 @@ public final class TableCollection {
             return false;
         }
     }
+
 
     private static class TableSequence {
 

@@ -40,27 +40,6 @@ final class TableProductHolder {
         state = State.FINISHED;
     }
 
-    class ProductCount {
-
-        private int count;
-
-        ProductCount() {
-            this.count = 0;
-        }
-
-        void increse() {
-            count++;
-        }
-
-        void decrese() {
-            count--;
-        }
-
-        public int getCount() {
-            return count;
-        }
-    }
-
     enum State {
         ACTIVE,
         FINISHED

@@ -7,6 +7,9 @@ package com.serveeasy.model.users;
  */
 public abstract class User {
 
+    //todo: e nevoe de un factory care sa returneze pe baza lui UserEnum un user
+    //todo: acel user object va fi folosit mai departe de UserManager din persistence pentru
+    //todo a-i seta din baza de date username & shit
     private int userId;
     private String name;
     private String username;

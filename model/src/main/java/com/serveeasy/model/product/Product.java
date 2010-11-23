@@ -11,7 +11,7 @@ public interface Product {
 
     Category getCategory();
 
-    Amount getSellPrice();
+    Money getSellPrice();
 
-    Amount getEntryPrice();
+    Money getEntryPrice();
 }

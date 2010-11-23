@@ -2,9 +2,6 @@ package com.serveeasy.model.product;
 
 import com.serveeasy.model.AbstractTestCase;
 
-import java.util.Currency;
-import java.util.Locale;
-
 /**
  * User: cristian.popovici
  * Date: Nov 11, 2010
@@ -12,16 +9,14 @@ import java.util.Locale;
  */
 public class CategoryTest extends AbstractTestCase {
 
-    Currency currency = Currency.getInstance(Locale.UK);
-
     public void testCategory() throws Exception {
         Category endCategory = new DefaultCategory("Drinks");
         Category middleCategory = new DefaultCategory("Alcoholic", endCategory);
         Category someCategory = new DefaultCategory("Beer", middleCategory);
 
 
-        Amount sellPrice = Amount.newAmount(10);
-        Amount entryPrice = Amount.newAmount(10);
+        Money sellPrice = Money.newAmount(10);
+        Money entryPrice = Money.newAmount(10);
         Product product = new DefaultProduct("Timisoreana", "Bere locala", someCategory, sellPrice, entryPrice);
 
 

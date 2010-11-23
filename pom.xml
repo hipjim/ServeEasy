@@ -12,6 +12,7 @@
     <modules>
         <module>model</module>
         <module>persistence</module>
+        <module>web</module>
     </modules>
 
     <properties>

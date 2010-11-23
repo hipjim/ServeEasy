@@ -37,21 +37,24 @@ public class WorkDayTest extends AbstractTestCase {
         tc1.addTable(t4);
         tc1.addTable(t5);
 
-        System.out.println(tc1.getActiveTables().size());
+
+        int expectedSize = 5;
+        int actualSize = tc1.getTables().size();
+
+        assertEquals("There should be 5 tables available", expectedSize, actualSize);
 
         tc1.removeTable(t2);
 
-        System.out.println(tc1.getActiveTables().size());
+        expectedSize = 4;
+        actualSize = tc1.getTables().size();
+        assertEquals("There should be 4 tables available", expectedSize, actualSize);
 
 
         System.exit(0);
 
 
-
         User u1 = new EmployeeUser();
         u1.setUsername("user1");
-
-
 
 
         TableCollection tc2 = new TableCollection();

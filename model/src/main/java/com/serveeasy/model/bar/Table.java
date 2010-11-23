@@ -3,6 +3,7 @@ package com.serveeasy.model.bar;
 import com.serveeasy.model.product.Product;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public final class Table implements Serializable {
     private TableStatus tableStats;
     private TableProductHolder productHolder;
     private String tableName;
+    private TableCalculator calculator;
 
     private final List<TableActivationObserver> activationObserverList;
 
@@ -43,6 +45,7 @@ public final class Table implements Serializable {
         }
 
         tableStats = TableStatus.ACTIVE;
+        calculator = new TableCalculator(this);
 
         productHolder = new TableProductHolder();
 
@@ -56,13 +59,25 @@ public final class Table implements Serializable {
             throw new IllegalStateException("Table is already active");
         }
 
-        tableStats = TableStatus.INACTIVE;
+        if (calculator.getPendingMoney().getAmount().compareTo(BigDecimal.ZERO) > 0) {
+            throw new IllegalStateException("Cannot deactivate table. Money are still pending!");
+        }
+
+        calculator = null;
 
         productHolder.close();
+        tableStats = TableStatus.INACTIVE;
 
         for (TableActivationObserver observer : activationObserverList) {
             observer.onDeactivation(this);
         }
+    }
+
+    public TableCalculator getCalucaltor() {
+        if (!isActive()) {
+            throw new IllegalStateException("Table is not in active state");
+        }
+        return calculator;
     }
 
     public void addProduct(Product product) {

@@ -1,7 +1,6 @@
 package com.serveeasy.model.product;
 
 import com.serveeasy.model.AbstractTestCase;
-import junit.framework.TestCase;
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -13,21 +12,21 @@ public class AmmountTest extends AbstractTestCase {
 
     public void testAddAmmount() throws Exception {
 
-        Amount actualAmount = Amount.newAmount(12.2);
-        actualAmount.add(BigDecimal.valueOf(10));
+        Money actualMoney = Money.newAmount(12.2);
+        actualMoney.add(BigDecimal.valueOf(10));
 
-        Amount expectedAmount = Amount.newAmount(22.2);
+        Money expectedMoney = Money.newAmount(22.2);
 
-        assertEquals(actualAmount, expectedAmount);
+        assertEquals(actualMoney, expectedMoney);
     }
 
     public void testSubstrcatAmmount() throws Exception {
-        Amount actualAmount = Amount.newAmount(12.2);
-        actualAmount.substract(BigDecimal.valueOf(10));
+        Money actualMoney = Money.newAmount(12.2);
+        actualMoney.substract(BigDecimal.valueOf(10));
 
-        Amount expectedAmount = Amount.newAmount(2.2);
+        Money expectedMoney = Money.newAmount(2.2);
 
-        assertEquals(actualAmount, expectedAmount);
+        assertEquals(actualMoney, expectedMoney);
     }
 
 }
