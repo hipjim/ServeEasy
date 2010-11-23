@@ -2,10 +2,7 @@ package com.serveeasy.model.program;
 
 import com.serveeasy.model.users.User;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Holds the association between calendar days, weeks, months and Shifts
@@ -14,6 +11,10 @@ import java.util.Map;
  * TODO: get x month program, move program from week -> week, move program from month -> month
  * TODO: set shit/day
  * TODO: copy shifts from day to day x, set for whole week, set for whole month
+ *
+ * todo : asta trebuie testat foarte bine, pentru toate metodele existente mai ales pentru treceri de la o luna la alta
+ * todo: de la un an la altul, pentru luni care se termina l;a jumatatea saptamanii s.a.m.d
+ *
  * <p/>
  * User: elvis
  * Date: 14-Nov-2010
@@ -23,7 +24,7 @@ public class WorkProgram {
 
     private Map<Calendar, WorkDay> program;
     //todo : in obiectul asta trebuie sa vina contextul sa-si seteze cum trebuie datele
-    private Calendar now = Calendar.getInstance();
+    private Calendar now = new GregorianCalendar();
 
     //todo : probabil am nevoie si de obiectul de persistenta in b de date
 
@@ -36,28 +37,25 @@ public class WorkProgram {
     }
 
     public void setWorkProgramForWeek(Calendar date, WorkDay workDay) {
-        //if we are in the same week, then set the workDay for the remaining days in week
-        int startWeekDay = 1;
-        if (date.get(Calendar.WEEK_OF_YEAR) == now.get(Calendar.WEEK_OF_YEAR)) {
-            startWeekDay = date.get(Calendar.DAY_OF_WEEK);
-        }
-        for (int i = startWeekDay; i <= 7; i++) {
-            date.set(Calendar.DAY_OF_WEEK, i);
-            this.setWorkProgramForDay(date, workDay);
+        for (int i = date.get(Calendar.DAY_OF_MONTH);
+             i < date.get(Calendar.DAY_OF_MONTH) + 7;
+             i++) {
+            Calendar c = new GregorianCalendar();
+            c.set(GregorianCalendar.DAY_OF_MONTH, i);
+            this.setWorkProgramForDay(c, workDay);
         }
     }
 
     public void setWorkProgramForMonth(Calendar date, WorkDay workDay) {
-        //if we are in the same month, then set the workDay for the remaining days in month
-        int startDayInMonth = 1;
-        if (date.get(Calendar.MONTH) == now.get(Calendar.MONTH)) {
-            startDayInMonth = date.get(Calendar.DAY_OF_MONTH);
-        }
-        for (int i = startDayInMonth; i <= date.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-            date.set(Calendar.DAY_OF_MONTH, i);
-            this.setWorkProgramForDay(date, workDay);
+        for (int i = date.get(Calendar.DAY_OF_MONTH); i <= date.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
+            Calendar c = new GregorianCalendar();
+            c.set(GregorianCalendar.DAY_OF_MONTH, i);
+
+            this.setWorkProgramForDay(c, workDay);
         }
     }
+
+
 //
 //    public boolean setWorkProgramForYear(Calendar date, WorkDay workDay) {
 //
@@ -87,4 +85,19 @@ public class WorkProgram {
 //
 //    }
 
+    public Map<Calendar, WorkDay> getProgram() {
+        return this.program;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Calendar day : this.program.keySet()) {
+            int month = day.get(Calendar.MONTH) + 1;
+            sb.append("Date: " + day.get(Calendar.YEAR) + "-" + month + "-" + day.get(Calendar.DAY_OF_MONTH));
+            sb.append("\nWorkDay:" + this.program.get(day));
+            sb.append("\n\n");
+        }
+        return sb.toString();
+    }
 }
