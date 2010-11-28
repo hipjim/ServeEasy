@@ -1,6 +1,7 @@
 package com.serveeasy.model.program;
 
 import com.serveeasy.model.users.*;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -22,18 +23,20 @@ public class WorkProgramTest {
         wd.assignUser(admin);
 
         WorkProgram wp = new WorkProgram();
-//        wp.setWorkProgramForDay(new GregorianCalendar(), wd);
+        wp.setWorkProgramForDay(new DateTime(), wd);
 
-//        System.out.println(wp);
+        System.out.println(wp);
 
 
 //        wp.setWorkProgramForWeek(new GregorianCalendar(),wd);
 //
 //        System.out.println(wp);
 
-        wp.setWorkProgramForMonth(new GregorianCalendar(),wd);
+//        wp.setWorkProgramForMonth(new GregorianCalendar(),wd);
+//
+//        System.out.println(wp);
 
-        System.out.println(wp);
+        
 
 
     }

@@ -37,22 +37,31 @@ public class WorkDayTest extends AbstractTestCase {
         tc1.addTable(t4);
         tc1.addTable(t5);
 
+        TableCollection tc3 = new TableCollection();
+        tc3.addTable(t1);
+        tc3.addTable(t2);
+        tc3.addTable(t3);
+        tc3.addTable(t4);
+        tc3.addTable(t5);
+
 
         int expectedSize = 5;
         int actualSize = tc1.getTables().size();
 
-        assertEquals("There should be 5 tables available", expectedSize, actualSize);
+        assertEquals("There should be 5 tables available tc1", expectedSize, actualSize);
+        assertEquals("There should be 5 tables available tc3", expectedSize, tc3.getTables().size());
 
         tc1.removeTable(t2);
 
         expectedSize = 4;
         actualSize = tc1.getTables().size();
-        assertEquals("There should be 4 tables available", expectedSize, actualSize);
+        assertEquals("There should be 4 tables available tc1", expectedSize, actualSize);
+        assertEquals("There should be 4 tables available tc3", 5, tc3.getTables().size());
 
 
-        System.exit(0);
+        
 
-
+        
         User u1 = new UsersFactory().createUser(UserType.EMPLOYEE);
         u1.setUsername("user1");
 
@@ -82,6 +91,9 @@ public class WorkDayTest extends AbstractTestCase {
 
         assertEquals(3, wd.getUsers().size());
         assertEquals(2, wd.getUsersForTable(t3).size());
+
+        
+
         assertEquals(true, wd.getUsersForTable(t3).contains(u1));
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));
         assertEquals(false, wd.getUsersForTable(t3).contains(u3));
@@ -98,12 +110,23 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(true, wd.getUsersForTable(t5).contains(u3));
         assertEquals(true, wd.getUsersForTable(t5).contains(u4));
 
-        System.out.println(wd.getUsersForTable(t3));
+//        System.out.println(wd.getUsersForTable(t3));
+
+        System.out.println(wd);
+
+        
 
         wd.removeTableForUser(u1, t3);
+        System.out.println("*****************");
 
+        System.out.println(wd);
+        System.exit(0);
+
+        assertEquals(3, wd.getTablesForUser(u1).getTables().size());
         assertEquals(4, wd.getUsers().size());
         System.out.println(wd.getUsersForTable(t3));
+
+        System.out.println("**********************");
         assertEquals(2, wd.getUsersForTable(t3).size());
         assertEquals(false, wd.getUsersForTable(t3).contains(u1));
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));

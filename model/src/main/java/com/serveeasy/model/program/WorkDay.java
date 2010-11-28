@@ -25,11 +25,11 @@ public class WorkDay {
     }
 
     public void assignUser(User user) {
-        this.assignUserToTables(user, null);
+        this.assignUserToTables(user, new TableCollection());
     }
 
     public void assignUserToTables(User user, TableCollection tables) {
-        this.userTables.put(user, tables);
+        this.userTables.put(user, new TableCollection(tables.getTables()));
     }
 
     public boolean isUserAssignedToTable(User user, Table table) {
@@ -47,8 +47,12 @@ public class WorkDay {
 
     public Set<User> getUsersForTable(Table table) {
         Set<User> users = new HashSet<User>();
+
         for (User user : this.userTables.keySet()) {
+//            System.out.println("User: "+user);
             TableCollection tables = this.userTables.get(user);
+//            System.out.println("tables:"+tables);
+//            System.out.println(table);
             if (tables.contains(table)) {
                 users.add(user);
             }
@@ -60,11 +64,7 @@ public class WorkDay {
         this.userTables.remove(user);
     }
 
-    /**
-     * @todo : not working correctly din cauza lui TableCollection
-     * @param user
-     * @param table
-     */
+
     public void removeTableForUser(User user, Table table) {
         if (isUserAssignedToTable(user, table)) {
             this.userTables.get(user).removeTable(table);
@@ -72,7 +72,7 @@ public class WorkDay {
     }
 
     public void copyUserTablesToUser(User userFrom, User userTo) {
-        this.userTables.put(userTo, this.userTables.get(userFrom));
+        this.userTables.put(userTo, new TableCollection(this.userTables.get(userFrom).getTables()));
     }
 
     /**
@@ -80,6 +80,10 @@ public class WorkDay {
      */
     public TableCollection viewUnassignedTables() {
         return null;
+    }
+
+    public String toString() {
+        return this.userTables.toString();
     }
 }
 
