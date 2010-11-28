@@ -1,8 +1,6 @@
 package com.serveeasy.model.program;
 
-import com.serveeasy.model.users.AdminUser;
-import com.serveeasy.model.users.EmployeeUser;
-import com.serveeasy.model.users.User;
+import com.serveeasy.model.users.*;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -18,8 +16,8 @@ public class WorkProgramTest {
     public void testSetWorkProgramForDay() throws Exception {
 
         WorkDay wd = new WorkDay();
-        User usr1 = new EmployeeUser();
-        User admin = new AdminUser();
+        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User admin = new UsersFactory().createUser(UserType.ADMIN);
         wd.assignUser(usr1);
         wd.assignUser(admin);
 

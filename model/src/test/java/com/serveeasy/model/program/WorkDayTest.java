@@ -3,9 +3,9 @@ package com.serveeasy.model.program;
 import com.serveeasy.model.AbstractTestCase;
 import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCollection;
-import com.serveeasy.model.users.AdminUser;
-import com.serveeasy.model.users.EmployeeUser;
 import com.serveeasy.model.users.User;
+import com.serveeasy.model.users.UserType;
+import com.serveeasy.model.users.UsersFactory;
 import org.junit.Test;
 
 /**
@@ -16,7 +16,7 @@ import org.junit.Test;
 public class WorkDayTest extends AbstractTestCase {
 
     @Test
-    public void testWorkDay() {
+    public void testWorkDay() throws Exception {
 
         WorkDay wd = new WorkDay();
 
@@ -53,7 +53,7 @@ public class WorkDayTest extends AbstractTestCase {
         System.exit(0);
 
 
-        User u1 = new EmployeeUser();
+        User u1 = new UsersFactory().createUser(UserType.EMPLOYEE);
         u1.setUsername("user1");
 
 
@@ -63,7 +63,7 @@ public class WorkDayTest extends AbstractTestCase {
         tc2.addTable(t7);
         tc2.addTable(t8);
         tc2.addTable(t9);
-        User u2 = new AdminUser();
+        User u2 = new UsersFactory().createUser(UserType.ADMIN);
         u2.setUsername("admin");
 
         wd.assignUser(u1);
@@ -75,7 +75,7 @@ public class WorkDayTest extends AbstractTestCase {
 
         assertEquals(2, wd.getUsers().size());
 
-        User u3 = new EmployeeUser();
+        User u3 = new UsersFactory().createUser(UserType.EMPLOYEE);
         u3.setUsername("user 3");
 
         wd.assignUserToTables(u3, tc2);
@@ -86,7 +86,7 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));
         assertEquals(false, wd.getUsersForTable(t3).contains(u3));
 
-        User u4 = new EmployeeUser();
+        User u4 = new UsersFactory().createUser(UserType.EMPLOYEE);
         u4.setUsername("user 4");
         wd.copyUserTablesToUser(u1, u4);
 
