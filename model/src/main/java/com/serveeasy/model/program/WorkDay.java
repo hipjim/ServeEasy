@@ -12,12 +12,13 @@ import java.util.*;
  * Time: 15:57:48
  * <p/>
  */
-public class WorkDay {
+class WorkDay {
 
     private Map<User, TableCollection> userTables;
+    private UserTablesHandler uth = new UserTablesHandler();
 
     public WorkDay() {
-        this.userTables = new HashMap<User, TableCollection>();
+        userTables = new HashMap<User, TableCollection>();
     }
 
     public Set<User> getUsers() {
@@ -25,34 +26,27 @@ public class WorkDay {
     }
 
     public void assignUser(User user) {
-        this.assignUserToTables(user, new TableCollection());
+        assignUserToTables(user, new TableCollection());
     }
 
     public void assignUserToTables(User user, TableCollection tables) {
-        this.userTables.put(user, new TableCollection(tables.getTables()));
+        userTables.put(user, createCopyTableCollection(tables));
     }
 
-    public boolean isUserAssignedToTable(User user, Table table) {
-        if (this.userTables.keySet().contains(user) &&
-                this.userTables.get(user).contains(table)) {
-            return true;
-        } else {
-            return false;
-        }
+     public boolean isUserAssignedToTable(User user, Table table) {
+        TableCollection collection = userTables.get(user);
+        return collection != null && collection.contains(table);
     }
 
     public TableCollection getTablesForUser(User user) {
-        return this.userTables.get(user);
+        return userTables.get(user);
     }
 
     public Set<User> getUsersForTable(Table table) {
         Set<User> users = new HashSet<User>();
 
-        for (User user : this.userTables.keySet()) {
-//            System.out.println("User: "+user);
-            TableCollection tables = this.userTables.get(user);
-//            System.out.println("tables:"+tables);
-//            System.out.println(table);
+        for (User user : userTables.keySet()) {
+            TableCollection tables = userTables.get(user);
             if (tables.contains(table)) {
                 users.add(user);
             }
@@ -61,18 +55,27 @@ public class WorkDay {
     }
 
     public void removeUser(User user) {
-        this.userTables.remove(user);
+        userTables.remove(user);
     }
 
 
     public void removeTableForUser(User user, Table table) {
         if (isUserAssignedToTable(user, table)) {
-            this.userTables.get(user).removeTable(table);
+            userTables.get(user).removeTable(table);
         }
     }
 
+    private TableCollection createCopyTableCollection(TableCollection tcFrom) {
+        TableCollection copy = new TableCollection();
+        Iterator<Table> it = tcFrom.getTables().iterator();
+        while (it.hasNext()) {
+            copy.addTable(it.next());
+        }
+        return copy;
+    }
+
     public void copyUserTablesToUser(User userFrom, User userTo) {
-        this.userTables.put(userTo, new TableCollection(this.userTables.get(userFrom).getTables()));
+        userTables.put(userTo, createCopyTableCollection(userTables.get(userFrom)));
     }
 
     /**
@@ -83,7 +86,7 @@ public class WorkDay {
     }
 
     public String toString() {
-        return this.userTables.toString();
+        return userTables.toString();
     }
 }
 

@@ -67,7 +67,6 @@ public abstract class User {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
-        result = 31 * result + (active ? 1 : 0);
         result = 31 * result + (isAdmin ? 1 : 0);
         return result;
     }

@@ -4,9 +4,6 @@ import com.serveeasy.model.users.*;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 /**
  * User: elvis
  * Date: 22-Nov-2010

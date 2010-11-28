@@ -1,8 +1,6 @@
 package com.serveeasy.model.program;
 
-import com.serveeasy.model.users.User;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeField;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,11 +31,11 @@ public class WorkProgram {
     //todo : probabil am nevoie si de obiectul de persistenta in b de date
 
     public WorkProgram() {
-        this.program = new HashMap<DateTime, WorkDay>();
+        program = new HashMap<DateTime, WorkDay>();
     }
 
     public void setWorkProgramForDay(DateTime date, WorkDay workDay) {
-        this.program.put(date, workDay);
+        program.put(date, workDay);
     }
 
     public void setWorkProgramForWeek(DateTime date, WorkDay workDay) {
@@ -46,7 +44,7 @@ public class WorkProgram {
 //             i++) {
 //            Calendar c = new GregorianCalendar();
 //            c.set(GregorianCalendar.DAY_OF_MONTH, i);
-//            this.setWorkProgramForDay(c, workDay);
+//            this.setWorkProgramForDay(c, userTablesHandler);
 //        }
     }
 
@@ -55,7 +53,7 @@ public class WorkProgram {
 //            Calendar c = new GregorianCalendar();
 //            c.set(GregorianCalendar.DAY_OF_MONTH, i);
 //
-//            this.setWorkProgramForDay(c, workDay);
+//            this.setWorkProgramForDay(c, userTablesHandler);
 //        }
     }
 
@@ -90,16 +88,16 @@ public class WorkProgram {
 //    }
 
     public Map<DateTime, WorkDay> getProgram() {
-        return this.program;
+        return program;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (DateTime dt : this.program.keySet()) {
+        for (DateTime dt : program.keySet()) {
             int month = dt.getMonthOfYear();
             sb.append("Date: " + dt.getYear() + "-" + month + "-" + dt.getDayOfMonth());
-            sb.append("\nWorkDay:" + this.program.get(dt));
+            sb.append("\nWorkDay:" + program.get(dt));
             sb.append("\n\n");
         }
         return sb.toString();

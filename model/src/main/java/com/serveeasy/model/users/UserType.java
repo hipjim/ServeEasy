@@ -19,7 +19,7 @@ public enum UserType {
     }
 
     public String getUsertype() {
-        return this.userType;
+        return userType;
     }
 
 }

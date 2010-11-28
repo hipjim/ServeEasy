@@ -15,7 +15,7 @@ public class UsersFactory {
     }
 
     public User createUser(UserType usr) throws Exception {
-        Class userClass = Class.forName(this.getUserClassName(usr.getUsertype()));
+        Class userClass = Class.forName(getUserClassName(usr.getUsertype()));
         return (User) userClass.newInstance();
     }
 

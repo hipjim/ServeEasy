@@ -59,9 +59,9 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals("There should be 4 tables available tc3", 5, tc3.getTables().size());
 
 
-        
 
-        
+
+
         User u1 = new UsersFactory().createUser(UserType.EMPLOYEE);
         u1.setUsername("user1");
 
@@ -92,7 +92,7 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(3, wd.getUsers().size());
         assertEquals(2, wd.getUsersForTable(t3).size());
 
-        
+
 
         assertEquals(true, wd.getUsersForTable(t3).contains(u1));
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));
@@ -110,28 +110,79 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(true, wd.getUsersForTable(t5).contains(u3));
         assertEquals(true, wd.getUsersForTable(t5).contains(u4));
 
-//        System.out.println(wd.getUsersForTable(t3));
-
-        System.out.println(wd);
-
-        
-
         wd.removeTableForUser(u1, t3);
-        System.out.println("*****************");
-
-        System.out.println(wd);
-        System.exit(0);
 
         assertEquals(3, wd.getTablesForUser(u1).getTables().size());
         assertEquals(4, wd.getUsers().size());
-        System.out.println(wd.getUsersForTable(t3));
-
-        System.out.println("**********************");
+        
         assertEquals(2, wd.getUsersForTable(t3).size());
         assertEquals(false, wd.getUsersForTable(t3).contains(u1));
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));
         assertEquals(false, wd.getUsersForTable(t3).contains(u3));
         assertEquals(true, wd.getUsersForTable(t5).contains(u3));
         assertEquals(true, wd.getUsersForTable(t5).contains(u4));
+    }
+
+    public void testUsersForTable() throws Exception {
+
+        WorkDay wd = new WorkDay();
+
+        Table t1 = new Table(3, "t1");
+        Table t2 = new Table(3, "t2");
+        Table t3 = new Table(3, "t3");
+        Table t4 = new Table(3, "t4");
+        Table t5 = new Table(3, "t5");
+        Table t6 = new Table(3, "t6");
+        Table t7 = new Table(3, "t7");
+        Table t8 = new Table(3, "t8");
+        Table t9 = new Table(3, "t9");
+
+        TableCollection tc1 = new TableCollection();
+        tc1.addTable(t1);
+        tc1.addTable(t2);
+        tc1.addTable(t3);
+        tc1.addTable(t4);
+        tc1.addTable(t5);
+
+        TableCollection tc2 = new TableCollection();
+        tc2.addTable(t1);
+        tc2.addTable(t2);
+        tc2.addTable(t3);
+        tc2.addTable(t4);
+        tc2.addTable(t5);
+
+
+        User u1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        u1.setUsername("user1");
+
+        User u2 = new UsersFactory().createUser(UserType.ADMIN);
+        u2.setUsername("admin");
+
+        wd.assignUserToTables(u1, tc1);
+        wd.assignUserToTables(u2, tc2);
+
+        assertEquals(5, wd.getTablesForUser(u1).getTables().size());
+        assertEquals(2, wd.getUsersForTable(t1).size());
+
+        wd.removeTableForUser(u1, t1);
+
+        assertEquals(4, wd.getTablesForUser(u1).getTables().size());
+        assertEquals(1, wd.getUsersForTable(t1).size());
+
+         User u3 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        u3.setUsername("user3");
+
+        wd.copyUserTablesToUser(u2, u3);
+
+        assertEquals(5, wd.getTablesForUser(u3).getTables().size());
+        assertEquals(2, wd.getUsersForTable(t1).size());
+
+        wd.removeTableForUser(u3, t1);
+
+        assertEquals(4, wd.getTablesForUser(u3).getTables().size());
+        assertEquals(1, wd.getUsersForTable(t1).size());
+
+        
+
     }
 }

@@ -96,7 +96,7 @@ public final class TableCollection {
     public String toString() {
         String returned = "Tables:\n";
         for (Table t : this.tableSet) {
-//            returned += t.getTableName() + "\n";
+            returned += t.getTableName() + "\n";
             returned += t + "\n";
         }
         return returned;
