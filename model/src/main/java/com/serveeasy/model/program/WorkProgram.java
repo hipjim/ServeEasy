@@ -1,6 +1,9 @@
 package com.serveeasy.model.program;
 
 import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.Interval;
+import org.joda.time.Period;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +16,13 @@ import java.util.Map;
  * TODO: get x month program, move program from week -> week, move program from month -> month
  * TODO: set shit/day
  * TODO: copy shifts from day to day x, set for whole week, set for whole month
- *
+ * TODO: set program for this kind of day for whole month, for 3 months, whole year - seteaza programul de joi pentru
+ * TODO: toate zilele de joi din luna/an sau o anumita perioada  
+ * <p/>
  * todo : asta trebuie testat foarte bine, pentru toate metodele existente mai ales pentru treceri de la o luna la alta
- * todo: de la un an la altul, pentru luni care se termina l;a jumatatea saptamanii s.a.m.d
- * 
- *
+ * todo: de la un an la altul, pentru luni care se termina la jumatatea saptamanii s.a.m.d
+ * <p/>
+ * <p/>
  * <p/>
  * User: elvis
  * Date: 14-Nov-2010
@@ -26,12 +31,15 @@ import java.util.Map;
 public class WorkProgram {
 
     private Map<DateTime, WorkDay> program;
-    //todo : in obiectul asta trebuie sa vina contextul sa-si seteze cum trebuie datele
-
-    //todo : probabil am nevoie si de obiectul de persistenta in b de date
+    //todo : in obiectul asta trebuie sa vina contextul sa-si seteze cum trebuie datele\
+    //todo: ar trebui o functionalitate de overwrite pe true sau false
 
     public WorkProgram() {
         program = new HashMap<DateTime, WorkDay>();
+    }
+
+    public WorkProgram(Map<DateTime, WorkDay> program) {
+        this.program = program;
     }
 
     public void setWorkProgramForDay(DateTime date, WorkDay workDay) {
@@ -39,22 +47,21 @@ public class WorkProgram {
     }
 
     public void setWorkProgramForWeek(DateTime date, WorkDay workDay) {
-//        for (int i = date.get(Calendar.DAY_OF_MONTH);
-//             i < date.get(Calendar.DAY_OF_MONTH) + 7;
-//             i++) {
-//            Calendar c = new GregorianCalendar();
-//            c.set(GregorianCalendar.DAY_OF_MONTH, i);
-//            this.setWorkProgramForDay(c, userTablesHandler);
-//        }
+        DateTime firstDayOfWeek = date.dayOfWeek().setCopy(date.dayOfWeek().getMinimumValue());
+        DateTime lastDayOfWeek = date.dayOfWeek().setCopy(date.dayOfWeek().getMaximumValue());
+        for (int i = firstDayOfWeek.getDayOfMonth(); i <= lastDayOfWeek.getDayOfMonth(); i++) {
+            setWorkProgramForDay(firstDayOfWeek, workDay);
+            firstDayOfWeek = firstDayOfWeek.plusDays(1);
+        }
     }
 
     public void setWorkProgramForMonth(DateTime date, WorkDay workDay) {
-//        for (int i = date.get(Calendar.DAY_OF_MONTH); i <= date.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-//            Calendar c = new GregorianCalendar();
-//            c.set(GregorianCalendar.DAY_OF_MONTH, i);
-//
-//            this.setWorkProgramForDay(c, userTablesHandler);
-//        }
+        DateTime firstDayOfMonth = date.dayOfMonth().setCopy(date.dayOfMonth().getMinimumValue());
+        DateTime lastDayOfMonth = date.dayOfMonth().setCopy(date.dayOfMonth().getMaximumValue());
+        for (int i = firstDayOfMonth.getDayOfMonth(); i <= lastDayOfMonth.getDayOfMonth(); i++) {
+            setWorkProgramForDay(firstDayOfMonth, workDay);
+            firstDayOfMonth = firstDayOfMonth.plusDays(1);
+        }
     }
 
 

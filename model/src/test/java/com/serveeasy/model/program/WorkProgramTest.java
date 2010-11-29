@@ -1,7 +1,9 @@
 package com.serveeasy.model.program;
 
+import com.serveeasy.model.AbstractTestCase;
 import com.serveeasy.model.users.*;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeField;
 import org.junit.Test;
 
 /**
@@ -9,7 +11,7 @@ import org.junit.Test;
  * Date: 22-Nov-2010
  * Time: 20:10:27
  */
-public class WorkProgramTest {
+public class WorkProgramTest extends AbstractTestCase {
     @Test
     public void testSetWorkProgramForDay() throws Exception {
 
@@ -20,18 +22,18 @@ public class WorkProgramTest {
         wd.assignUser(admin);
 
         WorkProgram wp = new WorkProgram();
-        wp.setWorkProgramForDay(new DateTime(), wd);
 
+        DateTime date19 = new DateTime(2010,11,19,0,0,0,0);
+
+        wp.setWorkProgramForDay(date19, wd);
+
+        wp.setWorkProgramForWeek(date19,wd);
+        assertEquals(7, wp.getProgram().size());
+
+        wp.setWorkProgramForMonth(date19,wd);
+        assertEquals(30, wp.getProgram().size());
         System.out.println(wp);
-
-
-//        wp.setWorkProgramForWeek(new GregorianCalendar(),wd);
-//
-//        System.out.println(wp);
-
-//        wp.setWorkProgramForMonth(new GregorianCalendar(),wd);
-//
-//        System.out.println(wp);
+        
 
         
 
