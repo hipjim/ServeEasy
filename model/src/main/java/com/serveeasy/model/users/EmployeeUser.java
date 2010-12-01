@@ -8,7 +8,7 @@ package com.serveeasy.model.users;
 class EmployeeUser extends User {
 
 
-    @Override
+    //@Override
     public boolean isAdmin() {
         return false;    
     }

@@ -1,11 +1,10 @@
 package com.serveeasy.model.program;
 
 import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.Interval;
-import org.joda.time.Period;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -17,7 +16,7 @@ import java.util.Map;
  * TODO: set shit/day
  * TODO: copy shifts from day to day x, set for whole week, set for whole month
  * TODO: set program for this kind of day for whole month, for 3 months, whole year - seteaza programul de joi pentru
- * TODO: toate zilele de joi din luna/an sau o anumita perioada  
+ * TODO: toate zilele de joi din luna/an sau o anumita perioada
  * <p/>
  * todo : asta trebuie testat foarte bine, pentru toate metodele existente mai ales pentru treceri de la o luna la alta
  * todo: de la un an la altul, pentru luni care se termina la jumatatea saptamanii s.a.m.d
@@ -65,32 +64,46 @@ public class WorkProgram {
     }
 
 
+    public void setWorkProgramForYear(DateTime date, WorkDay workDay) {
+        DateTime firstDayOfYear = date.dayOfYear().setCopy(date.dayOfYear().getMinimumValue());
+        DateTime lastDayOfYear = date.dayOfYear().setCopy(date.dayOfYear().getMaximumValue());
+        for (int i = firstDayOfYear.getDayOfYear(); i <= lastDayOfYear.getDayOfYear(); i++) {
+            setWorkProgramForDay(firstDayOfYear, workDay);
+            firstDayOfYear = firstDayOfYear.plusDays(1);
+        }
+    }
+
+    public void copyWorkProgramFromDayToDay(DateTime dayFrom, DateTime dayTo) {
+        setWorkProgramForDay(dayTo, program.get(dayFrom));
+    }
+
+    public void copyWorkProgramFromDayToWeek(DateTime dayFrom, DateTime dayTo) {
+        setWorkProgramForWeek(dayTo, program.get(dayFrom));
+    }
+
+    public void copyWorkProgramFromDayToMonth(DateTime dayFrom, DateTime dayTo) {
+        setWorkProgramForMonth(dayTo, program.get(dayFrom));
+    }
+
+    public void copyWorkProgramFromWeekToWeek(DateTime dayFrom, DateTime dayTo) {
+        DateTime firstDayOfWeekFrom = dayFrom.dayOfWeek().setCopy(dayFrom.dayOfWeek().getMinimumValue());
+        DateTime lastDayOfWeekFrom = dayFrom.dayOfWeek().setCopy(dayFrom.dayOfWeek().getMaximumValue());
+        DateTime firstDayOfWeekTo = dayTo.dayOfWeek().setCopy(dayTo.dayOfWeek().getMinimumValue());
+        for (int i = firstDayOfWeekFrom.getDayOfMonth(); i <= lastDayOfWeekFrom.getDayOfMonth(); i++) {
+            WorkDay wd = program.get(firstDayOfWeekFrom);
+            if (wd != null) {
+                setWorkProgramForDay(firstDayOfWeekTo, wd);
+            }
+            firstDayOfWeekFrom = firstDayOfWeekFrom.plusDays(1);
+            firstDayOfWeekTo = firstDayOfWeekTo.plusDays(1);
+        }
+    }
 //
-//    public boolean setWorkProgramForYear(Calendar date, WorkDay workDay) {
+//    public void copyWorkProgramFromWeekToMonth(DateTime weekFrom, DateTime monthTo) {
 //
 //    }
 //
-//    public boolean copyWorkProgramFromDayToDay(Calendar dayFrom, Calendar dayTo) {
-//
-//    }
-//
-//    public boolean copyWorkProgramFromDayToWeek(Calendar dayFrom, Calendar weekTo) {
-//
-//    }
-//
-//    public boolean copyWorkProgramFromDayToMonth(Calendar dayFrom, Calendar monthTo) {
-//
-//    }
-//
-//    public boolean copyWorkProgramFromWeekToWeek(Calendar weekFrom, Calendar weekTo) {
-//
-//    }
-//
-//    public boolean copyWorkProgramFromWeekToMonth(Calendar weekFrom, Calendar monthTo) {
-//
-//    }
-//
-//    public boolean copyWorkProgramFromMonthToMonth(Calendar monthFrom, Calendar monthTo) {
+//    public void copyWorkProgramFromMonthToMonth(DateTime monthFrom, DateTime monthTo) {
 //
 //    }
 
@@ -98,7 +111,23 @@ public class WorkProgram {
         return program;
     }
 
-    @Override
+    public WorkDay getWorkDay(DateTime day) {
+        return program.get(day);
+    }
+
+    //todo : testare metoda asta
+    public List<WorkDay> getWorkWeek(DateTime day) {
+        List<WorkDay> weekProgram = new ArrayList<WorkDay>();
+        for (DateTime dayInProgram : program.keySet()) {
+            if (dayInProgram.getWeekOfWeekyear() == day.getWeekOfWeekyear()) {
+                weekProgram.add(program.get(dayInProgram));
+            }
+        }
+        return weekProgram;
+    }
+
+    
+    //@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (DateTime dt : program.keySet()) {

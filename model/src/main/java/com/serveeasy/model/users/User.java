@@ -50,7 +50,7 @@ public abstract class User {
         return isAdmin;
     }
 
-    @Override
+    //@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -61,7 +61,7 @@ public abstract class User {
         return true;
     }
 
-    @Override
+    //@Override
     public int hashCode() {
         int result = userId;
         result = 31 * result + (name != null ? name.hashCode() : 0);
@@ -71,15 +71,15 @@ public abstract class User {
         return result;
     }
 
-    @Override
+    //@Override
     public String toString() {
         return "User{" + "\n" +
                 "userId=" + userId + "\n" +
                 ", name='" + name + '\'' + "\n" +
                 ", username='" + username + '\'' + "\n" +
                 ", password='" + getPassword() + '\'' + "\n" +
-                ", active=" + active + "\n" +
-                ", isAdmin=" + isAdmin + "\n" +
+                ", active=" + isActive() + "\n" +
+                ", isAdmin=" + isAdmin() + "\n" +
                 '}';
     }
 
