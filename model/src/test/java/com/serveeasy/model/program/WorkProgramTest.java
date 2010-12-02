@@ -139,7 +139,7 @@ public class WorkProgramTest extends AbstractTestCase {
         WorkDay wd19 = new WorkDay();
         wd19.assignUser(usr1);
         wd19.assignUser(admin);
-        
+
         WorkDay wd20 = new WorkDay();
         wd20.assignUser(usr1);
 
@@ -184,5 +184,71 @@ public class WorkProgramTest extends AbstractTestCase {
     }
 
 
-    
+    @Test
+    public void testGetWorkWeekAndMonth() throws Exception {
+        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User admin = new UsersFactory().createUser(UserType.ADMIN);
+
+        WorkDay wd19 = new WorkDay();
+        wd19.assignUser(usr1);
+        wd19.assignUser(admin);
+
+        WorkProgram wp = new WorkProgram();
+        DateTime date19 = new DateTime(2010, 12, 19, 0, 0, 0, 0);
+        DateTime date12 = new DateTime(2010, 12, 8, 0, 0, 0, 0);
+        DateTime date1 = new DateTime(2010, 1, 1, 0, 0, 0, 0);
+
+        wp.setWorkProgramForWeek(date19, wd19);
+        wp.copyWorkProgramFromDayToWeek(date19, date12);
+
+        assertEquals(14, wp.getProgram().size());
+        assertEquals(7, wp.getWorkWeek(date12).size());
+
+        wp.copyWorkProgramFromDayToMonth(date19, date1);
+
+        assertEquals(31, wp.getWorkMonth(date1).size());
+    }
+
+
+    @Test
+    public void testRemove() throws Exception {
+        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User admin = new UsersFactory().createUser(UserType.ADMIN);
+
+        WorkDay wd19 = new WorkDay();
+        wd19.assignUser(usr1);
+        wd19.assignUser(admin);
+
+        WorkProgram wp = new WorkProgram();
+        DateTime date19 = new DateTime(2010, 12, 19, 0, 0, 0, 0);
+        DateTime date12 = new DateTime(2010, 12, 8, 0, 0, 0, 0);
+        DateTime date1 = new DateTime(2010, 1, 1, 0, 0, 0, 0);
+
+        wp.setWorkProgramForWeek(date19, wd19);
+        wp.copyWorkProgramFromDayToWeek(date19, date12);
+
+        assertEquals(14, wp.getProgram().size());
+        assertEquals(7, wp.getWorkWeek(date12).size());
+
+        wp.copyWorkProgramFromDayToMonth(date19, date1);
+
+        assertEquals(45, wp.getProgram().size());
+        assertEquals(7, wp.getWorkWeek(date12).size());
+        assertEquals(31, wp.getWorkMonth(date1).size());
+
+        wp.removeWorkDay(date1);
+        assertEquals(30, wp.getWorkMonth(date1).size());
+
+        wp.removeWorkWeek(date1);
+        assertEquals(28, wp.getWorkMonth(date1).size());
+
+        wp.removeWorkMonth(date1);
+        assertEquals(0, wp.getWorkMonth(date1).size());
+
+
+
+
+    }
+
+
 }

@@ -2,27 +2,14 @@ package com.serveeasy.model.program;
 
 import org.joda.time.DateTime;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
- * Holds the association between calendar days, weeks, months and Shifts
- * <p/>
- * TODO:  get this week program, get next week program, get x week program, get month program, get next month program
- * TODO: get x month program, move program from week -> week, move program from month -> month
- * TODO: set shit/day
- * TODO: copy shifts from day to day x, set for whole week, set for whole month
- * TODO: set program for this kind of day for whole month, for 3 months, whole year - seteaza programul de joi pentru
- * TODO: toate zilele de joi din luna/an sau o anumita perioada
- * <p/>
+ * Holds the association between calendar days and working days
  * todo : asta trebuie testat foarte bine, pentru toate metodele existente mai ales pentru treceri de la o luna la alta
  * todo: de la un an la altul, pentru luni care se termina la jumatatea saptamanii s.a.m.d
- * <p/>
- * <p/>
- * <p/>
+ *
  * User: elvis
  * Date: 14-Nov-2010
  * Time: 15:44:36
@@ -30,9 +17,7 @@ import java.util.Map;
 public class WorkProgram {
 
     private Map<DateTime, WorkDay> program;
-    //todo : in obiectul asta trebuie sa vina contextul sa-si seteze cum trebuie datele\
-    //todo: ar trebui o functionalitate de overwrite pe true sau false
-
+    
     public WorkProgram() {
         program = new HashMap<DateTime, WorkDay>();
     }
@@ -98,14 +83,6 @@ public class WorkProgram {
             firstDayOfWeekTo = firstDayOfWeekTo.plusDays(1);
         }
     }
-//
-//    public void copyWorkProgramFromWeekToMonth(DateTime weekFrom, DateTime monthTo) {
-//
-//    }
-//
-//    public void copyWorkProgramFromMonthToMonth(DateTime monthFrom, DateTime monthTo) {
-//
-//    }
 
     public Map<DateTime, WorkDay> getProgram() {
         return program;
@@ -115,18 +92,57 @@ public class WorkProgram {
         return program.get(day);
     }
 
-    //todo : testare metoda asta
     public List<WorkDay> getWorkWeek(DateTime day) {
         List<WorkDay> weekProgram = new ArrayList<WorkDay>();
         for (DateTime dayInProgram : program.keySet()) {
-            if (dayInProgram.getWeekOfWeekyear() == day.getWeekOfWeekyear()) {
+            if (dayInProgram.getWeekOfWeekyear() == day.getWeekOfWeekyear() &&
+                    dayInProgram.getYear() == day.getYear()) {
                 weekProgram.add(program.get(dayInProgram));
             }
         }
         return weekProgram;
     }
 
-    
+    public List<WorkDay> getWorkMonth(DateTime day) {
+        List<WorkDay> monthProgram = new ArrayList<WorkDay>();
+        for (DateTime dayInProgram : program.keySet()) {
+            if (dayInProgram.getMonthOfYear() == day.getMonthOfYear() &&
+                    day.getYear() == dayInProgram.getYear()) {
+                monthProgram.add(program.get(dayInProgram));
+            }
+        }
+        return monthProgram;
+    }
+
+    public void removeWorkDay(DateTime day) {
+        program.remove(day);
+    }
+
+    public void removeWorkWeek(DateTime day) {
+        Iterator<Map.Entry<DateTime, WorkDay>> it = (Iterator< Map.Entry <DateTime, WorkDay>>)program.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<DateTime, WorkDay> pairs = it.next();
+            DateTime dayInProgram = pairs.getKey();
+            if (dayInProgram.getWeekOfWeekyear() == day.getWeekOfWeekyear() &&
+                    dayInProgram.getYear() == day.getYear()) {
+                it.remove();
+            }
+        }
+    }
+
+    public void removeWorkMonth(DateTime day) {
+        Iterator<Map.Entry<DateTime, WorkDay>> it = (Iterator< Map.Entry <DateTime, WorkDay>>)program.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<DateTime, WorkDay> pairs = it.next();
+            DateTime dayInProgram = pairs.getKey();
+            if (dayInProgram.getMonthOfYear() == day.getMonthOfYear() &&
+                    dayInProgram.getYear() == day.getYear()) {
+                it.remove();
+            }
+        }
+    }
+
+
     //@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
