@@ -5,10 +5,10 @@ package com.serveeasy.model.users;
  * Date: 11-Nov-2010
  * Time: 20:02:48
  */
-public class EmployeeUser extends User {
+class EmployeeUser extends User {
 
 
-    @Override
+    //@Override
     public boolean isAdmin() {
         return false;    
     }

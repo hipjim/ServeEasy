@@ -27,7 +27,7 @@ public final class TableCollection {
 
     public TableCollection(Set<Table> tables) {
         sequence = new TableSequence();
-        this.tableSet = new HashSet<Table>();
+        this.tableSet = tables;
         tableIndex = new HashMap<Integer, Table>();
 
         for (final Table table : tableSet) {
@@ -91,6 +91,15 @@ public final class TableCollection {
         Integer getNext() {
             return ++counter;
         }
+    }
+
+    public String toString() {
+        String returned = "Tables:\n";
+        for (Table t : this.tableSet) {
+            returned += t.getTableName() + "\n";
+            returned += t + "\n";
+        }
+        return returned;
     }
 
 }

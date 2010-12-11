@@ -7,9 +7,6 @@ package com.serveeasy.model.users;
  */
 public abstract class User {
 
-    //todo: e nevoe de un factory care sa returneze pe baza lui UserEnum un user
-    //todo: acel user object va fi folosit mai departe de UserManager din persistence pentru
-    //todo a-i seta din baza de date username & shit
     private int userId;
     private String name;
     private String username;
@@ -53,7 +50,7 @@ public abstract class User {
         return isAdmin;
     }
 
-    @Override
+    //@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -64,26 +61,25 @@ public abstract class User {
         return true;
     }
 
-    @Override
+    //@Override
     public int hashCode() {
         int result = userId;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
-        result = 31 * result + (active ? 1 : 0);
         result = 31 * result + (isAdmin ? 1 : 0);
         return result;
     }
 
-    @Override
+    //@Override
     public String toString() {
         return "User{" + "\n" +
                 "userId=" + userId + "\n" +
                 ", name='" + name + '\'' + "\n" +
                 ", username='" + username + '\'' + "\n" +
                 ", password='" + getPassword() + '\'' + "\n" +
-                ", active=" + active + "\n" +
-                ", isAdmin=" + isAdmin + "\n" +
+                ", active=" + isActive() + "\n" +
+                ", isAdmin=" + isAdmin() + "\n" +
                 '}';
     }
 

@@ -7,14 +7,14 @@ package com.serveeasy.model.users;
  * Date: 11-Nov-2010
  * Time: 19:15:50
  */
-public class AdminUser extends User {
+class AdminUser extends User {
 
-    @Override
+    //@Override
     public boolean isActive() {
         return true;
     }
 
-    @Override
+    //@Override
     public boolean isAdmin() {
         return true;
     }

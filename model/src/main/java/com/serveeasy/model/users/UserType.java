@@ -8,7 +8,18 @@ package com.serveeasy.model.users;
  */
 public enum UserType {
 
-    EMPLOYEE,
-    ADMINISTRATOR
+    EMPLOYEE("Employee"),
+    ADMIN("Admin");
+
+
+    private String userType;
+
+    UserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getUsertype() {
+        return userType;
+    }
 
 }
