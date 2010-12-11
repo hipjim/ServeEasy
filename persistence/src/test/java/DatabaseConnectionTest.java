@@ -18,12 +18,6 @@ public class DatabaseConnectionTest extends TestCase {
         DaoRepository repository = (DaoRepository) ctx.getBean("daoRepository");
         TableDao dao = repository.getTableDao();
 
-<<<<<<< HEAD
-        
-=======
         assertNotNull(dao);
->>>>>>> origin/master
     }
-
-
 }
