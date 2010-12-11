@@ -9,6 +9,14 @@
     <packaging>pom</packaging>
     <version>0.1</version>
 
+    <repositories>
+        <repository>
+            <id>JBoss Repo</id>
+            <url>http://repository.jboss.com/maven2</url>
+        </repository>
+    </repositories>
+
+
     <modules>
         <module>model</module>
         <module>persistence</module>
@@ -65,12 +73,6 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${org.springframework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
@@ -80,6 +82,7 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
+
     </dependencies>
 
 </project>
