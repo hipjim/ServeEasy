@@ -25,7 +25,7 @@ class UsersDaoImpl implements UsersDao {
 
     public void addUser(User user) {
         String query = "INSERT INTO `serveeasy`.`users` " +
-                " SET `username` = '"+user.getUsername()+"', " +
+                " SET `username` = '"+user.getUsername()+"' " +
                 " ";
         jdbcTemplate.execute(query);
     }
