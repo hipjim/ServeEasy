@@ -9,13 +9,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Created by IntelliJ IDEA.
- * User: eu
- * Date: Dec 11, 2010
- * Time: 3:34:14 PM
- * To change this template use File | Settings | File Templates.
- */
 public class UsersDaoImplTest {
 
     @Test

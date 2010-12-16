@@ -7,6 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 
+//todo : get user by id, by username, by fullname, get active users, get inactive users, get admin
+//todo: get users with privileges, get active users with privileges, get users,
+//todo: delete user by if, username, fullname
+//todo: activate/deactivate user, grant/revoke privileges
+//todo: 
+
 @Repository(value = UsersDao.SPRING_BEAN_NAME)
 class UsersDaoImpl implements UsersDao {
 
@@ -18,8 +24,9 @@ class UsersDaoImpl implements UsersDao {
     }
 
     public void addUser(User user) {
-        String query = "INSERT INTO `serveeasy`.`bar_users` " +
-                " SET `username` = '"+user.getUsername()+"'";
+        String query = "INSERT INTO `serveeasy`.`users` " +
+                " SET `username` = '"+user.getUsername()+"', " +
+                " ";
         jdbcTemplate.execute(query);
     }
 }
