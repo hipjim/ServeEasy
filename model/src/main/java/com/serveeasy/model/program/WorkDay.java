@@ -15,7 +15,6 @@ import java.util.*;
 class WorkDay {
 
     private Map<User, TableCollection> userTables;
-    private UserTablesHandler uth = new UserTablesHandler();
 
     public WorkDay() {
         userTables = new HashMap<User, TableCollection>();
@@ -76,13 +75,6 @@ class WorkDay {
 
     public void copyUserTablesToUser(User userFrom, User userTo) {
         userTables.put(userTo, createCopyTableCollection(userTables.get(userFrom)));
-    }
-
-    /**
-     * @todo
-     */
-    public TableCollection viewUnassignedTables() {
-        return null;
     }
 
     public String toString() {

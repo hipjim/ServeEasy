@@ -76,14 +76,14 @@ class UsersDaoImpl implements UsersDao {
         return jdbcTemplate.update(query);
     }
 
-    public int activateOrDeactivateUser(int id, boolean activate) {
+    public int modifyUserActive(int id, boolean activate) {
         String query = "UPDATE `serveeasy`.`users` " +
                 " SET `active` = "+activate+" " +
                 " WHERE `id` = " + id + "";
         return jdbcTemplate.update(query);
     }
 
-    public int grantOrRevokePrivileges(int id, boolean privileges) {
+    public int modifyUserPrivileges(int id, boolean privileges) {
        String query = "UPDATE `serveeasy`.`users` " +
                 " SET `is_with_privileges` = "+privileges+" " +
                 " WHERE `id` = " + id + "";

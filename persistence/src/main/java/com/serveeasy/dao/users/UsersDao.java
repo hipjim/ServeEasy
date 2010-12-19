@@ -29,9 +29,9 @@ public interface UsersDao {
 
     public abstract int deleteUser(String username);
 
-    public abstract int activateOrDeactivateUser(int id, boolean activate);
+    public abstract int modifyUserActive(int id, boolean activate);
 
-    public abstract int grantOrRevokePrivileges(int id, boolean privileges);
+    public abstract int modifyUserPrivileges(int id, boolean privileges);
 
     public abstract int updateUser(int id, User user);
 }
