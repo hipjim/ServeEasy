@@ -28,16 +28,16 @@ class UsersDaoImpl implements UsersDao {
         jdbcTemplate.execute(query);
     }
 
-    public List<User> getUser(int id) {
+    public User getUser(int id) {
         String query = "SELECT * FROM `serveeasy`.`users` " +
                 " WHERE `id` = " + id + "";
-        return jdbcTemplate.query(query, new UserRowMapper());
+        return jdbcTemplate.query(query, new UserRowMapper()).get(0);
     }
 
-    public List<User> getUser(String username) {
+    public User getUser(String username) {
         String query = "SELECT * FROM `serveeasy`.`users` " +
                 " WHERE `username` = '" + username + "'";
-        return jdbcTemplate.query(query, new UserRowMapper());
+        return jdbcTemplate.query(query, new UserRowMapper()).get(0);
     }
 
     public List<User> getUsers() {

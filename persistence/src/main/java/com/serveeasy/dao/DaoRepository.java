@@ -1,6 +1,7 @@
 package com.serveeasy.dao;
 
 import com.serveeasy.dao.bar.BarDetailsDao;
+import com.serveeasy.dao.program.ProgramDao;
 import com.serveeasy.dao.table.TableDao;
 import com.serveeasy.dao.users.UsersDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,9 @@ public class DaoRepository {
 
     public BarDetailsDao getBarDetailsDao() {
         return (BarDetailsDao) context.getBean(BarDetailsDao.SPRING_BEAN_NAME);
+    }
+
+    public ProgramDao getProgramDao() {
+        return (ProgramDao) context.getBean(ProgramDao.SPRING_BEAN_NAME);
     }
 }

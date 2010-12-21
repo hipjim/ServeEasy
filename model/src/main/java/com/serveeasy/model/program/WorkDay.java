@@ -12,7 +12,7 @@ import java.util.*;
  * Time: 15:57:48
  * <p/>
  */
-class WorkDay {
+public class WorkDay {
 
     private Map<User, TableCollection> userTables;
 

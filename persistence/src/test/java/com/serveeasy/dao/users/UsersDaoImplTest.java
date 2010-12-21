@@ -34,6 +34,8 @@ public class UsersDaoImplTest extends TestCase {
 
     @Test
     public void testGetUser() {
+        System.out.println(dao.getUser(5));
+        System.out.println(dao.getUser(8));
 //        assertEquals(dao.getUser(6).size(), 1);
 //        assertEquals(3, dao.getUsers().size());
 //        assertEquals(dao.getActiveOrInactiveUsers(true).size(), 1);

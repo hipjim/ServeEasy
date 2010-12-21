@@ -13,11 +13,11 @@ public interface UsersDao {
 
     public abstract void addUser(User user);
 
-    public abstract List<User> getUser(int id);
+    public abstract User getUser(int id);
 
     public abstract List<User> getUsers();
 
-    public abstract List<User> getUser(String username);
+    public abstract User getUser(String username);
 
     public abstract List<User> getUsers(boolean active, boolean privilege);
 
