@@ -18,4 +18,9 @@ class AdminUser extends User {
     public boolean isAdmin() {
         return true;
     }
+
+    //@Override
+    public boolean isWithPrivileges() {
+        return true;
+    }
 }

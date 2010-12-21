@@ -7,8 +7,6 @@ import java.util.*;
 
 /**
  * Holds the association between calendar days and working days
- * todo : asta trebuie testat foarte bine, pentru toate metodele existente mai ales pentru treceri de la o luna la alta
- * todo: de la un an la altul, pentru luni care se termina la jumatatea saptamanii s.a.m.d
  *
  * User: elvis
  * Date: 14-Nov-2010

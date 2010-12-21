@@ -1,5 +1,6 @@
 package com.serveeasy.model.bar;
 
+import java.io.File;
 /**
  * User: elvis
  * Date: 11-Nov-2010
@@ -7,7 +8,8 @@ package com.serveeasy.model.bar;
  */
 public class BarDetails {
 
-    private String image;
+    private String imageName;
+    private File imageFile;
     private String email;
     private String barName;
     private String country;
@@ -16,12 +18,12 @@ public class BarDetails {
     private String zipCode;
     private String street;
 
-    public String getImage() {
-        return image;
+    public String getImageName() {
+        return imageName;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     public String getEmail() {
@@ -78,5 +80,13 @@ public class BarDetails {
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public File getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(File imageFile) {
+        this.imageFile = imageFile;
     }
 }

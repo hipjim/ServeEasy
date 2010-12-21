@@ -18,6 +18,7 @@ public final class Table implements Serializable {
     private TableStatus tableStats;
     private TableProductHolder productHolder;
     private String tableName;
+    private int tableId;
     private TableCalculator calculator;
 
     private final List<TableActivationObserver> activationObserverList;
@@ -118,5 +119,13 @@ public final class Table implements Serializable {
         int result = capacity;
         result = 31 * result + (tableName != null ? tableName.hashCode() : 0);
         return result;
+    }
+
+    public int getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(int tableId) {
+        this.tableId = tableId;
     }
 }

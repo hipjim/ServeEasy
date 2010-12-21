@@ -22,6 +22,4 @@ public class DatabaseConnectionTest extends TestCase {
 
         assertNotNull(dao);
     }
-
-
 }

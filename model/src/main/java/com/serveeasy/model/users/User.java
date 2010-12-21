@@ -8,18 +8,19 @@ package com.serveeasy.model.users;
 public abstract class User {
 
     private int userId;
-    private String name;
+    private String fullname;
     private String username;
     private String password;
     private boolean active;
     private boolean isAdmin;
-
-    public String getName() {
-        return name;
+    private boolean isWithPrivileges; 
+    
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public boolean isActive() {
@@ -64,10 +65,11 @@ public abstract class User {
     //@Override
     public int hashCode() {
         int result = userId;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (fullname != null ? fullname.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
         result = 31 * result + (isAdmin ? 1 : 0);
+        result = 31 * result + (isWithPrivileges ? 1 : 0);
         return result;
     }
 
@@ -75,11 +77,12 @@ public abstract class User {
     public String toString() {
         return "User{" + "\n" +
                 "userId=" + userId + "\n" +
-                ", name='" + name + '\'' + "\n" +
+                ", fullname='" + fullname + '\'' + "\n" +
                 ", username='" + username + '\'' + "\n" +
                 ", password='" + getPassword() + '\'' + "\n" +
                 ", active=" + isActive() + "\n" +
                 ", isAdmin=" + isAdmin() + "\n" +
+                ", isWithPrivileges=" + isWithPrivileges() + "\n" +
                 '}';
     }
 
@@ -89,5 +92,13 @@ public abstract class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isWithPrivileges() {
+        return isWithPrivileges;
+    }
+
+    public void setWithPrivileges(boolean withPrivileges) {
+        isWithPrivileges = withPrivileges;
     }
 }

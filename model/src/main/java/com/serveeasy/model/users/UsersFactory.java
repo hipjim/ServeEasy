@@ -1,5 +1,7 @@
 package com.serveeasy.model.users;
 
+import com.serveeasy.model.exceptions.SystemException;
+
 import java.util.List;
 
 /**
@@ -14,9 +16,15 @@ public class UsersFactory {
     public UsersFactory() {
     }
 
-    public User createUser(UserType usr) throws Exception {
-        Class userClass = Class.forName(getUserClassName(usr.getUsertype()));
-        return (User) userClass.newInstance();
+    public User createUser(UserType usr) {
+        User user = null;
+        try {
+            Class userClass = Class.forName(getUserClassName(usr.getUsertype()));
+            user = (User) userClass.newInstance();
+        } catch (Exception ex) {
+            throw new SystemException("User class unknown");
+        }
+        return user;
     }
 
     private String getUserClassName(String usrType) {
