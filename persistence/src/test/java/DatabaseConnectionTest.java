@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class DatabaseConnectionTest extends TestCase {
 
     public void testConnection() {
+
         ApplicationContext ctx =
                 new ClassPathXmlApplicationContext("com/serveeasy/context/applicationContext.xml");
 

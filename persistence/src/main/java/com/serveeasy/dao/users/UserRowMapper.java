@@ -11,9 +11,8 @@ import java.sql.SQLException;
  */
 class UserRowMapper implements RowMapper<User> {
 
-
     public User mapRow(ResultSet resultSet, int i) throws SQLException {
-        UserResultSetExtractor ext  = new UserResultSetExtractor();
+        UserResultSetExtractor ext = new UserResultSetExtractor();
         return ext.extractData(resultSet);
     }
 }
