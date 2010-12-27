@@ -30,7 +30,7 @@ class UserResultSetExtractor implements ResultSetExtractor<User> {
 
         user.setActive(rs.getBoolean(ACTIVE));
         user.setFullname(rs.getString(FULLNAME));
-        user.setUserId(rs.getInt(ID));
+        user.setId(rs.getInt(ID));
         user.setUsername(rs.getString(USERNAME));
         user.setPassword(rs.getString(PASSWORD));
         user.setWithPrivileges(rs.getBoolean(IS_WITH_PRIVILEGES));

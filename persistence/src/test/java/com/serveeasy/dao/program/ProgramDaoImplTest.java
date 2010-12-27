@@ -34,23 +34,23 @@ public class ProgramDaoImplTest extends TestCase {
     @Test
     public void testSaveWorkProgram() throws Exception {
         Table t1 = new Table(3, "t1");
-        t1.setTableId(1);
+        t1.setId(1);
         Table t2 = new Table(3, "t2");
-        t2.setTableId(2);
+        t2.setId(2);
         Table t3 = new Table(3, "t3");
-        t3.setTableId(3);
+        t3.setId(3);
         Table t4 = new Table(3, "t4");
-        t4.setTableId(4);
+        t4.setId(4);
         Table t5 = new Table(3, "t5");
-        t5.setTableId(5);
+        t5.setId(5);
         Table t6 = new Table(3, "t6");
-        t6.setTableId(6);
+        t6.setId(6);
         Table t7 = new Table(3, "t7");
-        t7.setTableId(7);
+        t7.setId(7);
         Table t8 = new Table(3, "t8");
-        t8.setTableId(8);
+        t8.setId(8);
         Table t9 = new Table(3, "t9");
-        t9.setTableId(9);
+        t9.setId(9);
 
         TableCollection tc1 = new TableCollection();
         tc1.addTable(t1);
@@ -68,9 +68,9 @@ public class ProgramDaoImplTest extends TestCase {
 
         WorkDay wd = new WorkDay();
         User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        usr1.setUserId(1);
+        usr1.setId(1);
         User admin = new UsersFactory().createUser(UserType.ADMIN);
-        admin.setUserId(2);
+        admin.setId(2);
         wd.assignUserToTables(usr1, tc1);
         wd.assignUserToTables(admin, tc3);
 

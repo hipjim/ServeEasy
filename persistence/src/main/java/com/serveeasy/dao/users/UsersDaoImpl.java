@@ -40,45 +40,45 @@ class UsersDaoImpl extends Executor<User> implements UsersDao {
         String query = "SELECT * FROM `serveeasy`.`users` " +
                 " WHERE `active` = " + active + " AND " +
                 " `is_with_privileges` = " + privilege + "";
-        return jdbcTemplate.query(query, new UserRowMapper());
+        return null/*jdbcTemplate.query(query, new UserRowMapper())*/;
     }
 
     public List<User> getActiveOrInactiveUsers(boolean active) {
         String query = "SELECT * FROM `serveeasy`.`users` " +
                 "WHERE `active` = " + active + "";
-        return jdbcTemplate.query(query, new UserRowMapper());
+        return null/*jdbcTemplate.query(query, new UserRowMapper())*/;
     }
 
     public List<User> getPrivilegedOrUnprivilegedUsers(boolean privilege) {
         String query = "SELECT * FROM `serveeasy`.`users` " +
                 "WHERE `is_with_privileges` = " + privilege + "";
-        return jdbcTemplate.query(query, new UserRowMapper());
+        return null/*jdbcTemplate.query(query, new UserRowMapper())*/;
     }
 
     public int deleteUser(int id) {
         String query = "DELETE FROM `serveeasy`.`users` " +
                 "WHERE `id` = " + id + "";
-        return jdbcTemplate.update(query);
+        return 0/*jdbcTemplate.update(query)*/;
     }
 
     public int deleteUser(String username) {
         String query = "DELETE FROM `serveeasy`.`users` " +
                 "WHERE `username` = '" + username + "'";
-        return jdbcTemplate.update(query);
+        return 0/*jdbcTemplate.update(query)*/;
     }
 
     public int modifyUserActive(int id, boolean activate) {
         String query = "UPDATE `serveeasy`.`users` " +
                 " SET `active` = " + activate + " " +
                 " WHERE `id` = " + id + "";
-        return jdbcTemplate.update(query);
+        return 0/*jdbcTemplate.update(query)*/;
     }
 
     public int modifyUserPrivileges(int id, boolean privileges) {
         String query = "UPDATE `serveeasy`.`users` " +
                 " SET `is_with_privileges` = " + privileges + " " +
                 " WHERE `id` = " + id + "";
-        return jdbcTemplate.update(query);
+        return 0/*jdbcTemplate.update(query)*/;
     }
 
     public int updateUser(int id, User user) {
@@ -90,6 +90,6 @@ class UsersDaoImpl extends Executor<User> implements UsersDao {
                 " `active` = " + user.isActive() + ", " +
                 " `is_with_privileges` = " + user.isWithPrivileges() + " " +
                 " WHERE `id` = " + id + "";
-        return jdbcTemplate.update(query);
+        return 0/*jdbcTemplate.update(query)*/;
     }
 }

@@ -2,6 +2,7 @@ package com.serveeasy.dao.program;
 
 import com.serveeasy.model.program.WorkProgram;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 /**
  *
  */
+@Component
 class ProgramRowMapper implements RowMapper {
 
     private final WorkProgram wp;

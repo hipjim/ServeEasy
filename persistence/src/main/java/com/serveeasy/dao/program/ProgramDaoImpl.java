@@ -57,8 +57,8 @@ class ProgramDaoImpl implements ProgramDao {
                     for (Table table : wd.getTablesForUser(usr).getTables()) {
                         query = "INSERT INTO `serveeasy`.`program` " +
                                 " SET `day` = '" + dtf.print(date) + "', " +
-                                " `id_user` = " + usr.getUserId() + ", " +
-                                " `id_table` = " + table.getTableId() + "";
+                                " `id_user` = " + usr.getId() + ", " +
+                                " `id_table` = " + table.getId() + "";
                         jdbcTemplate.update(query);
                     }
                 }
