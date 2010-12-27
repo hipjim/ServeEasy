@@ -2,7 +2,6 @@ import com.serveeasy.dao.DaoRepository;
 import com.serveeasy.dao.table.TableDao;
 import junit.framework.TestCase;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

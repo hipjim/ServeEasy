@@ -1,7 +1,6 @@
 package com.serveeasy.dao.program;
 
 import com.serveeasy.dao.DaoRepository;
-import com.serveeasy.dao.bar.BarDetailsDao;
 import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCollection;
 import com.serveeasy.model.program.WorkDay;

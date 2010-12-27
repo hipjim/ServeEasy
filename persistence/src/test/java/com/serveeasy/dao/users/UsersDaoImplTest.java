@@ -1,7 +1,6 @@
 package com.serveeasy.dao.users;
 
 import com.serveeasy.dao.DaoRepository;
-import com.serveeasy.dao.table.TableDao;
 import com.serveeasy.model.users.User;
 import com.serveeasy.model.users.UserType;
 import com.serveeasy.model.users.UsersFactory;

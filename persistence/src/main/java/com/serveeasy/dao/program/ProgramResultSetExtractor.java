@@ -1,6 +1,5 @@
 package com.serveeasy.dao.program;
 
-import com.serveeasy.dao.DaoRepository;
 import com.serveeasy.dao.table.TableDao;
 import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.bar.Table;
@@ -8,12 +7,8 @@ import com.serveeasy.model.bar.TableCollection;
 import com.serveeasy.model.program.WorkDay;
 import com.serveeasy.model.program.WorkProgram;
 import com.serveeasy.model.users.User;
-import com.serveeasy.model.users.UserType;
-import com.serveeasy.model.users.UsersFactory;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import java.sql.ResultSet;
@@ -25,6 +20,7 @@ class ProgramResultSetExtractor implements ResultSetExtractor {
 
     @Autowired
     private UsersDao usersDao;
+
     @Autowired //todo: de ce nu merge chestia asta?
     private TableDao tableDao;
 

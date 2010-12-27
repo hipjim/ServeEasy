@@ -1,14 +1,11 @@
 package com.serveeasy.dao.bar;
 
 import com.serveeasy.dao.DaoRepository;
-import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.bar.BarDetails;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.io.File;
 
 /**
  *
