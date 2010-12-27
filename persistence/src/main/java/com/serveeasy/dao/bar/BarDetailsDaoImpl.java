@@ -1,10 +1,9 @@
 package com.serveeasy.dao.bar;
 
-import com.serveeasy.dao.users.UsersDao;
+import com.serveeasy.dao.api.Executor;
 import com.serveeasy.model.bar.BarDetails;
 import com.serveeasy.model.exceptions.SystemException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -15,13 +14,11 @@ import java.io.FileNotFoundException;
  *
  */
 @Repository(value = BarDetailsDao.SPRING_BEAN_NAME)
-class BarDetailsDaoImpl implements BarDetailsDao {
-
-    private JdbcTemplate jdbcTemplate;
+class BarDetailsDaoImpl extends Executor<BarDetails> implements BarDetailsDao {
 
     @Autowired
     public BarDetailsDaoImpl(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+        super(dataSource);
     }
 
     //todo: add bar details, edit bar details
@@ -38,7 +35,7 @@ class BarDetailsDaoImpl implements BarDetailsDao {
                     " `street` = '" + barDetails.getStreet() + "' ";
             if (barDetails.getImageFile() != null) {
                 query += ", `image_name` = '" + barDetails.getImageName() + "', " +
-                    " `image_file` = '" + new FileInputStream(barDetails.getImageFile()) + "' ";
+                        " `image_file` = '" + new FileInputStream(barDetails.getImageFile()) + "' ";
             }
             jdbcTemplate.update(query);
         } catch (FileNotFoundException e) {
@@ -58,10 +55,10 @@ class BarDetailsDaoImpl implements BarDetailsDao {
                     " `street` = '" + barDetails.getStreet() + "' ";
             if (barDetails.getImageFile() != null) {
                 query += ", `image_name` = '" + barDetails.getImageName() + "', " +
-                    " `image_file` = '" + new FileInputStream(barDetails.getImageFile()) + "' ";
+                        " `image_file` = '" + new FileInputStream(barDetails.getImageFile()) + "' ";
             }
 
-            query += " WHERE `id` = "+id+"";
+            query += " WHERE `id` = " + id + "";
             jdbcTemplate.update(query);
         } catch (FileNotFoundException e) {
             throw new SystemException("File " + barDetails.getImageName() + " not found");
