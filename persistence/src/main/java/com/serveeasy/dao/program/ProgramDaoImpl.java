@@ -31,9 +31,8 @@ class ProgramDaoImpl implements ProgramDao {
 //        workProgram = getWorkProgram();
     }
 
-    //todo: getProgram
-    //todo: intreb pe cristi de performanta daca tin toate datele in WorkProgram
-    //todo: testare pentru 2 ani de zile, 5 useri pe zi, 10 mese de fiecare, get si save
+    //todo: trebuie sa scot logica de a creat WorkProgram din extractor pentru ca foloseste dao
+    //todo: dao ar trebui folosit la acelasi nivel adica de restul obiectelor dao
     public WorkProgram getWorkProgram() {
         WorkProgram wp = new WorkProgram();
         String query = "SELECT * FROM `serveeasy`.`program` ";
@@ -45,7 +44,8 @@ class ProgramDaoImpl implements ProgramDao {
         return wp;
     }
 
-    //todo : tabelele de mysql trebuie puse cap la cap
+    //todo : setWorkProgramForDay, forMonth, for Week
+    //todo: getWorkProgramForDay, forMOnth, for Week, year ???
 
     public void saveWorkProgram(WorkProgram wp) {
         if (wp != null &&
@@ -59,8 +59,8 @@ class ProgramDaoImpl implements ProgramDao {
                     for (Table table : wd.getTablesForUser(usr).getTables()) {
                         query = "INSERT INTO `serveeasy`.`program` " +
                                 " SET `day` = '" + dtf.print(date) + "', " +
-                                " `id_user` = " + usr.getUserId() + ", " +
-                                " `id_table` = " + table.getTableId() + "";
+                                " `id_user` = " + usr.getId() + ", " +
+                                " `id_table` = " + table.getId() + "";
                         jdbcTemplate.update(query);
                     }
                 }

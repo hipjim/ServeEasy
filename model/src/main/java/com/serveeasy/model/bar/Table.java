@@ -12,13 +12,12 @@ import java.util.List;
  * <p/>
  * Date: Nov 9, 2010
  */
-public final class Table implements Serializable {
+public final class Table extends Ids implements Serializable {
 
     private final int capacity;
     private TableStatus tableStats;
     private TableProductHolder productHolder;
     private String tableName;
-    private int tableId;
     private TableCalculator calculator;
 
     private final List<TableActivationObserver> activationObserverList;
@@ -121,11 +120,4 @@ public final class Table implements Serializable {
         return result;
     }
 
-    public int getTableId() {
-        return tableId;
-    }
-
-    public void setTableId(int tableId) {
-        this.tableId = tableId;
-    }
 }

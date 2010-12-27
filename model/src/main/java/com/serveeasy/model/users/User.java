@@ -1,13 +1,14 @@
 package com.serveeasy.model.users;
 
+import com.serveeasy.model.bar.Ids;
+
 /**
  * User: elvis
  * Date: 11-Nov-2010
  * Time: 19:14:44
  */
-public abstract class User {
+public abstract class User extends Ids {
 
-    private int userId;
     private String fullname;
     private String username;
     private String password;
@@ -29,14 +30,6 @@ public abstract class User {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public String getUsername() {
@@ -64,7 +57,7 @@ public abstract class User {
 
     //@Override
     public int hashCode() {
-        int result = userId;
+        int result = getId();
         result = 31 * result + (fullname != null ? fullname.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
@@ -76,7 +69,7 @@ public abstract class User {
     //@Override
     public String toString() {
         return "User{" + "\n" +
-                "userId=" + userId + "\n" +
+                "userId=" + getId() + "\n" +
                 ", fullname='" + fullname + '\'' + "\n" +
                 ", username='" + username + '\'' + "\n" +
                 ", password='" + getPassword() + '\'' + "\n" +

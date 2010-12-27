@@ -6,7 +6,7 @@ import java.io.File;
  * Date: 11-Nov-2010
  * Time: 19:11:22
  */
-public class BarDetails {
+public class BarDetails extends Ids {
 
     private String imageName;
     private File imageFile;

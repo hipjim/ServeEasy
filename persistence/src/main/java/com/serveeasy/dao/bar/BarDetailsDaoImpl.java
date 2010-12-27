@@ -24,8 +24,6 @@ class BarDetailsDaoImpl implements BarDetailsDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    //todo: add bar details, edit bar details
-
     public void addBarDetails(BarDetails barDetails) {
         try {
             String query = "INSERT INTO `serveeasy`.`bar_details`" +

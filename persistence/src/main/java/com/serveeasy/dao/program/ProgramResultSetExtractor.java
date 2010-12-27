@@ -15,10 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 class ProgramResultSetExtractor implements ResultSetExtractor {
 
     private WorkProgram wp;
@@ -46,7 +48,7 @@ class ProgramResultSetExtractor implements ResultSetExtractor {
 //            Table t = tableDao.find(rs.getInt("id_table"));
             //todo: pana una alta
             Table t = new Table(3, "test table");
-            t.setTableId(456);
+            t.setId(456);
             TableCollection tc = wd.getTablesForUser(user);
 
             if (tc != null) {
@@ -61,5 +63,13 @@ class ProgramResultSetExtractor implements ResultSetExtractor {
             wp.setWorkProgramForDay(date, wd);
         }
          return null;
+    }
+
+    public UsersDao getUsersDao() {
+        return usersDao;
+    }
+
+    public TableDao getTableDao() {
+        return tableDao;
     }
 }
