@@ -15,6 +15,10 @@ class ProgramRowMapper implements RowMapper {
 
     private final WorkProgram wp;
 
+    ProgramRowMapper() {
+        this.wp = new WorkProgram();
+    }
+
     ProgramRowMapper(WorkProgram wp) {
         this.wp = wp;
     }

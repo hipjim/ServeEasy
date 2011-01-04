@@ -24,13 +24,13 @@ public interface UsersDao {
 
     List<User> getPrivilegedOrUnprivilegedUsers(boolean privilege);
 
-    int deleteUser(int id);
+    void deleteUser(int id);
 
-    int deleteUser(String username);
+    void deleteUser(String username);
 
-    int modifyUserActive(int id, boolean activate);
+    void modifyUserActive(int id, boolean activate);
 
-    int modifyUserPrivileges(int id, boolean privileges);
+    void modifyUserPrivileges(int id, boolean privileges);
 
-    int updateUser(int id, User user);
+    void updateUser(User user);
 }

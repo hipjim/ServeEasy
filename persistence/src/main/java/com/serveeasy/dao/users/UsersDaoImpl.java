@@ -37,59 +37,42 @@ class UsersDaoImpl extends Executor<User> implements UsersDao {
     }
 
     public List<User> getUsers(boolean active, boolean privilege) {
-        String query = "SELECT * FROM `serveeasy`.`users` " +
-                " WHERE `active` = " + active + " AND " +
-                " `is_with_privileges` = " + privilege + "";
-        return null/*jdbcTemplate.query(query, new UserRowMapper())*/;
+        FindActivePrivilegedUsersQuery comm = new FindActivePrivilegedUsersQuery(active, privilege);
+        return executeQuery(comm);
     }
 
     public List<User> getActiveOrInactiveUsers(boolean active) {
-        String query = "SELECT * FROM `serveeasy`.`users` " +
-                "WHERE `active` = " + active + "";
-        return null/*jdbcTemplate.query(query, new UserRowMapper())*/;
+        FindActiveUsersQuery command = new FindActiveUsersQuery(active);
+        return executeQuery(command);
     }
 
     public List<User> getPrivilegedOrUnprivilegedUsers(boolean privilege) {
-        String query = "SELECT * FROM `serveeasy`.`users` " +
-                "WHERE `is_with_privileges` = " + privilege + "";
-        return null/*jdbcTemplate.query(query, new UserRowMapper())*/;
+       FindPrivilegedUsersQuery comm = new FindPrivilegedUsersQuery(privilege);
+       return executeQuery(comm);
     }
 
-    public int deleteUser(int id) {
-        String query = "DELETE FROM `serveeasy`.`users` " +
-                "WHERE `id` = " + id + "";
-        return 0/*jdbcTemplate.update(query)*/;
+    public void deleteUser(int id) {
+        DeleteUserQuery delete = new DeleteUserQuery(id);
+        executeUpdate(delete);
     }
 
-    public int deleteUser(String username) {
-        String query = "DELETE FROM `serveeasy`.`users` " +
-                "WHERE `username` = '" + username + "'";
-        return 0/*jdbcTemplate.update(query)*/;
+    public void deleteUser(String username) {
+        DeleteUsernameQuery delete = new DeleteUsernameQuery(username);
+        executeUpdate(delete);
     }
 
-    public int modifyUserActive(int id, boolean activate) {
-        String query = "UPDATE `serveeasy`.`users` " +
-                " SET `active` = " + activate + " " +
-                " WHERE `id` = " + id + "";
-        return 0/*jdbcTemplate.update(query)*/;
+    public void modifyUserActive(int id, boolean activate) {
+        UpdateActiveQuery update = new UpdateActiveQuery(id, activate);
+        executeUpdate(update);
     }
 
-    public int modifyUserPrivileges(int id, boolean privileges) {
-        String query = "UPDATE `serveeasy`.`users` " +
-                " SET `is_with_privileges` = " + privileges + " " +
-                " WHERE `id` = " + id + "";
-        return 0/*jdbcTemplate.update(query)*/;
+    public void modifyUserPrivileges(int id, boolean privileges) {
+        UpdatePrivilegesQuery update = new UpdatePrivilegesQuery(id, privileges);
+        executeUpdate(update);
     }
 
-    public int updateUser(int id, User user) {
-        String query = "UPDATE `serveeasy`.`users` " +
-                " SET `username` = '" + user.getUsername() + "', " +
-                " `password` = '" + user.getPassword() + "', " +
-                " `fullname` = '" + user.getFullname() + "', " +
-                " `is_admin` = " + user.isAdmin() + ", " +
-                " `active` = " + user.isActive() + ", " +
-                " `is_with_privileges` = " + user.isWithPrivileges() + " " +
-                " WHERE `id` = " + id + "";
-        return 0/*jdbcTemplate.update(query)*/;
+    public void updateUser(User user) {
+        UpdateUserQuery update = new UpdateUserQuery(user);
+        executeUpdate(update);
     }
 }
