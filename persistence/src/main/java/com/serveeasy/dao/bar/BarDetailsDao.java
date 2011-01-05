@@ -11,7 +11,9 @@ public interface BarDetailsDao {
 
     public static final String SPRING_BEAN_NAME = "barDetailsDao";
 
-    public abstract void addBarDetails(BarDetails barDetails);
+    void addBarDetails(BarDetails barDetails);
 
-    public abstract void modifyBarDetails(BarDetails barDetails, int id);
+    void modifyBarDetails(BarDetails barDetails, int id);
+
+    BarDetails findBarDetails(int id);
 }
