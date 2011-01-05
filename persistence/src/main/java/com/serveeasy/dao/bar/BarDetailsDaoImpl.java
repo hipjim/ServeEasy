@@ -1,5 +1,6 @@
 package com.serveeasy.dao.bar;
 
+import com.serveeasy.dao.api.Executor;
 import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.bar.BarDetails;
 import com.serveeasy.model.exceptions.SystemException;
@@ -15,13 +16,18 @@ import java.io.FileNotFoundException;
  *
  */
 @Repository(value = BarDetailsDao.SPRING_BEAN_NAME)
-class BarDetailsDaoImpl implements BarDetailsDao {
+class BarDetailsDaoImpl extends Executor<BarDetails> implements BarDetailsDao {
 
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public BarDetailsDaoImpl(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+        super(dataSource);
+    }
+
+    public BarDetails findBarDetails(int id) {
+        FindBarDetailsQuery fbd = new FindBarDetailsQuery(id);
+        return executeQuery(fbd).get(0);
     }
 
     public void addBarDetails(BarDetails barDetails) {

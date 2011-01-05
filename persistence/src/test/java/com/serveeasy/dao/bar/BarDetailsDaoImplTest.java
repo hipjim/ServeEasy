@@ -44,4 +44,9 @@ public class BarDetailsDaoImplTest {
 
         dao.modifyBarDetails(bd, 2);
     }
+
+    @Test
+    public void testFindBarDetails() throws Exception {
+        System.out.println(dao.findBarDetails(2));
+    }
 }
