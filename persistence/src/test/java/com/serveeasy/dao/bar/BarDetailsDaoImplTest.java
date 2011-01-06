@@ -4,8 +4,14 @@ import com.serveeasy.dao.DaoRepository;
 import com.serveeasy.model.bar.BarDetails;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.FileInputStream;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.activation.MimetypesFileTypeMap;
 
 /**
  *
@@ -16,7 +22,7 @@ public class BarDetailsDaoImplTest {
 
     @Before
     public void setUp() throws Exception {
-         ApplicationContext ctx = new ClassPathXmlApplicationContext("com/serveeasy/context/applicationContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("com/serveeasy/context/applicationContext.xml");
 
 
         DaoRepository repository = (DaoRepository) ctx.getBean("daoRepository");
@@ -29,7 +35,12 @@ public class BarDetailsDaoImplTest {
         BarDetails bd = new BarDetails();
         bd.setBarName("testing bar");
         bd.setEmail("test@sss.com");
-//        bd.setImageFile(new File("C:\\Users\\eu\\Desktop\\t.jpg"));
+        File f = new File("C:\\Users\\eu\\Desktop\\3.png");
+        byte[] content = new byte[(int)f.length()];
+        new FileInputStream(f).read(content);
+        bd.setImageFileContent(content);
+        bd.setImageName(f.getName());
+        bd.setImageFileMimeType(new MimetypesFileTypeMap().getContentType(f));
 
         dao.addBarDetails(bd);
 
@@ -38,15 +49,30 @@ public class BarDetailsDaoImplTest {
     @Test
     public void testModifyBarDetails() throws Exception {
         BarDetails bd = new BarDetails();
-        bd.setBarName("new testing bar");
-        bd.setEmail("newtest@sss.com");
+        bd.setId(7);
+        bd.setBarName("testing bar updated");
+        bd.setEmail("test updated@sss.com");
+        File f = new File("C:\\Users\\eu\\Desktop\\4.jpg");
+        byte[] content = new byte[(int)f.length()];
+        new FileInputStream(f).read(content);
+        bd.setImageFileContent(content);
+        bd.setImageName(f.getName());
+        bd.setImageFileMimeType(new MimetypesFileTypeMap().getContentType(f));
 
 
-        dao.modifyBarDetails(bd, 2);
+        dao.modifyBarDetails(bd);
     }
 
     @Test
     public void testFindBarDetails() throws Exception {
-        System.out.println(dao.findBarDetails(2));
+        BarDetails bd = dao.findBarDetails(7);
+        System.out.println(bd);
+        System.out.println(bd.getImageFileContent().length);
+    }
+
+
+    @Test
+    public void testDelete() throws Exception {
+                          dao.deleteBarDetails(5);
     }
 }

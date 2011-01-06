@@ -14,7 +14,8 @@ class BarDetailsResultSetExtractor {
     private static final String BAR_ID = "bar_id";
     private static final String ID = "id";
     private static final String IMAGE_NAME = "image_name";
-    private static final String IMAGE_FILE = "image_file";
+    private static final String IMAGE_FILE_CONTENT = "image_file_content";
+    private static final String IMAGE_FILE_MIME_TYPE = "image_file_mime_type";
     private static final String EMAIL = "email";
     private static final String BAR_NAME = "bar_name";
     private static final String COUNTRY = "country";
@@ -29,8 +30,8 @@ class BarDetailsResultSetExtractor {
         bd.setBarId(rs.getInt(BAR_ID));
         bd.setId(rs.getInt(ID));
         bd.setImageName(rs.getString(IMAGE_NAME));
-        //todo:
-//        bd.setImageFile(new File()rs.getBlob(IMAGE_FILE));
+        bd.setImageFileContent(rs.getBytes(IMAGE_FILE_CONTENT));
+        bd.setImageFileMimeType(rs.getString(IMAGE_FILE_MIME_TYPE));
         bd.setEmail(rs.getString(EMAIL));
         bd.setBarName(rs.getString(BAR_NAME));
         bd.setCountry(rs.getString(COUNTRY));

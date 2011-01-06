@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 class FindBarDetailsQuery extends Query<BarDetails>{
 
-    private final static String query = "SELECT * FROM `serveeasy`.`bar_details` WHERE `id` = ?";
+    private final static String query = "SELECT `bar_id`,`id`,`image_name`,`image_file_content`,`image_file_mime_type`,`email`,`bar_name`,`country`,`city`,`state`,`zipcode`,`street` FROM `serveeasy`.`bar_details` WHERE `id` = ?";
 
     private int id;
 

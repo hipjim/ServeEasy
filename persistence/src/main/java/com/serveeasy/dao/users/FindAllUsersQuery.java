@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 final class FindAllUsersQuery extends Query<User> {
 
-    private final static String query = "SELECT * FROM `serveeasy`.`users` ";
+    private final static String query = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` ";
 
 
     @Override

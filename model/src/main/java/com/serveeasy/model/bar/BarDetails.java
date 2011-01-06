@@ -1,6 +1,5 @@
 package com.serveeasy.model.bar;
 
-import java.io.File;
 /**
  * User: elvis
  * Date: 11-Nov-2010
@@ -9,7 +8,8 @@ import java.io.File;
 public class BarDetails extends Ids {
 
     private String imageName;
-    private File imageFile;
+    private byte[] imageFileContent;
+    private String imageFileMimeType;
     private String email;
     private String barName;
     private String country;
@@ -82,11 +82,19 @@ public class BarDetails extends Ids {
         this.street = street;
     }
 
-    public File getImageFile() {
-        return imageFile;
+    public byte[] getImageFileContent() {
+        return imageFileContent;
     }
 
-    public void setImageFile(File imageFile) {
-        this.imageFile = imageFile;
+    public void setImageFileContent(byte[] imageFileContent) {
+        this.imageFileContent = imageFileContent;
+    }
+
+    public String getImageFileMimeType() {
+        return imageFileMimeType;
+    }
+
+    public void setImageFileMimeType(String imageFileMimeType) {
+        this.imageFileMimeType = imageFileMimeType;
     }
 }

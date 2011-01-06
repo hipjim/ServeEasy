@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 final class UserQuery extends Query<User> {
 
-    private static final String QUERY = "SELECT * FROM `serveeasy`.`users` WHERE `id` = ?";
+    private static final String QUERY = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `id` = ?";
 
     private final long id;
 

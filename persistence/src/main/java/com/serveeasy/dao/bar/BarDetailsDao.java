@@ -13,7 +13,9 @@ public interface BarDetailsDao {
 
     void addBarDetails(BarDetails barDetails);
 
-    void modifyBarDetails(BarDetails barDetails, int id);
+    void modifyBarDetails(BarDetails barDetails);
 
     BarDetails findBarDetails(int id);
+
+    void deleteBarDetails(int id);
 }

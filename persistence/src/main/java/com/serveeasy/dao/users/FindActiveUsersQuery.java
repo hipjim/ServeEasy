@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 final class FindActiveUsersQuery extends Query<User> {
 
-    private final static String query = "SELECT * FROM `serveeasy`.`users` WHERE `active` = ?";
+    private final static String query = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `active` = ?";
 
     private boolean active;
 

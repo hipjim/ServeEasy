@@ -1,7 +1,6 @@
 package com.serveeasy.dao.bar;
 
 import com.serveeasy.dao.api.Executor;
-import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.bar.BarDetails;
 import com.serveeasy.model.exceptions.SystemException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,44 +30,17 @@ class BarDetailsDaoImpl extends Executor<BarDetails> implements BarDetailsDao {
     }
 
     public void addBarDetails(BarDetails barDetails) {
-        try {
-            String query = "INSERT INTO `serveeasy`.`bar_details`" +
-                    " SET `email` = '" + barDetails.getEmail() + "', " +
-                    " `bar_name` = '" + barDetails.getBarName() + "', " +
-                    " `country` = '" + barDetails.getCountry() + "', " +
-                    " `city` = '" + barDetails.getCity() + "', " +
-                    " `state` = '" + barDetails.getState() + "', " +
-                    " `zipcode` = '" + barDetails.getZipCode() + "', " +
-                    " `street` = '" + barDetails.getStreet() + "' ";
-            if (barDetails.getImageFile() != null) {
-                query += ", `image_name` = '" + barDetails.getImageName() + "', " +
-                    " `image_file` = '" + new FileInputStream(barDetails.getImageFile()) + "' ";
-            }
-            jdbcTemplate.update(query);
-        } catch (FileNotFoundException e) {
-            throw new SystemException("File " + barDetails.getImageName() + " not found");
-        }
+        InsertBarDetailsQuery ins = new InsertBarDetailsQuery(barDetails);
+        executeUpdate(ins);
     }
 
-    public void modifyBarDetails(BarDetails barDetails, int id) {
-        try {
-            String query = "UPDATE `serveeasy`.`bar_details`" +
-                    " SET `email` = '" + barDetails.getEmail() + "', " +
-                    " `bar_name` = '" + barDetails.getBarName() + "', " +
-                    " `country` = '" + barDetails.getCountry() + "', " +
-                    " `city` = '" + barDetails.getCity() + "', " +
-                    " `state` = '" + barDetails.getState() + "', " +
-                    " `zipcode` = '" + barDetails.getZipCode() + "', " +
-                    " `street` = '" + barDetails.getStreet() + "' ";
-            if (barDetails.getImageFile() != null) {
-                query += ", `image_name` = '" + barDetails.getImageName() + "', " +
-                    " `image_file` = '" + new FileInputStream(barDetails.getImageFile()) + "' ";
-            }
+    public void modifyBarDetails(BarDetails barDetails) {
+        UpdateBarDetailsQuery update = new UpdateBarDetailsQuery(barDetails);
+        executeUpdate(update);
+    }
 
-            query += " WHERE `id` = "+id+"";
-            jdbcTemplate.update(query);
-        } catch (FileNotFoundException e) {
-            throw new SystemException("File " + barDetails.getImageName() + " not found");
-        }
+    public void deleteBarDetails(int id) {
+        DeleteBarDetailsQuery delete = new DeleteBarDetailsQuery(id);
+        executeUpdate(delete);
     }
 }
