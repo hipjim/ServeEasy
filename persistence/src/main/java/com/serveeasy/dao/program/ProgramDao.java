@@ -1,6 +1,7 @@
 package com.serveeasy.dao.program;
 
 import com.serveeasy.model.program.WorkProgram;
+import org.joda.time.DateTime;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -14,4 +15,8 @@ public interface ProgramDao {
     public abstract WorkProgram getWorkProgram();
 
     public abstract void saveWorkProgram(WorkProgram wp);
+
+    WorkProgram getDayProgram(DateTime day);
+
+    WorkProgram getMonthProgram(DateTime month);
 }

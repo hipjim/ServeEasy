@@ -80,8 +80,22 @@ public class ProgramDaoImplTest extends TestCase {
         wp.setWorkProgramForYear(date19, wd);
 
 
-//        dao.saveWorkProgram(wp);
+        dao.saveWorkProgram(wp);
 
+//        System.out.println(dao.getWorkProgram());
+    }
+
+    public void testGetProgram() throws Exception {
         System.out.println(dao.getWorkProgram());
+
+//        System.out.println(dao.getDayProgram(new DateTime(2010, 7, 17, 0,0,0,0)));
+//
+//        System.out.println(dao.getDayProgram(new DateTime(2010, 7, 16, 0,0,0,0)));
+//
+//        System.out.println("*****************************");
+//        System.out.println("DAY");
+//        System.out.println(dao.getDayProgram(new DateTime(2010, 9, 2, 0,0,0,0)));
+//        System.out.println("MONTH");
+//        System.out.println(dao.getMonthProgram(new DateTime(2010, 9, 2, 0, 0, 0, 0)));
     }
 }

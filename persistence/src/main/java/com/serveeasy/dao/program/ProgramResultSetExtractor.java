@@ -5,10 +5,8 @@ import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCollection;
 import com.serveeasy.model.program.WorkDay;
-import com.serveeasy.model.program.WorkProgram;
 import com.serveeasy.model.users.User;
 import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
 
@@ -18,54 +16,19 @@ import java.sql.SQLException;
 @Component
 class ProgramResultSetExtractor implements ResultSetExtractor {
 
-    private WorkProgram wp;
+    private static final String BAR_ID = "bar_id";
+    private static final String ID = "id";
+    private static final String DAY = "day";
+    private static final String ID_USER = "id_user";
+    private static final String ID_TABLE = "id_table";
 
-    @Autowired
-    private UsersDao usersDao;
-
-    @Autowired //todo: de ce nu merge chestia asta?
-    private TableDao tableDao;
-
-    public WorkProgram getWorkProgram() {
-        return wp;
-    }
-
-    public void setWorkProgram(WorkProgram wp) {
-        this.wp = wp;
-    }
-
-    public Object extractData(ResultSet rs) throws SQLException {
-        DateTime date = new DateTime(rs.getDate("day").getTime());
-
-        if (wp.getWorkDay(date) == null) {
-            WorkDay wd = new WorkDay();
-            User user = usersDao.getUser(rs.getInt("id_user"));
-            //todo: asa ar trebui, pana cand va fi reparata metoda
-//            Table t = tableDao.find(rs.getInt("id_table"));
-            //todo: pana una alta
-            Table t = new Table(3, "test table");
-            t.setId(456);
-            TableCollection tc = wd.getTablesForUser(user);
-
-            if (tc != null) {
-                 if (!tc.contains(t)) {
-                     tc.addTable(t);
-                 }
-            } else {
-                tc = new TableCollection();
-                tc.addTable(t);
-            }
-            wd.assignUserToTables(user, tc);
-            wp.setWorkProgramForDay(date, wd);
-        }
-         return null;
-    }
-
-    public UsersDao getUsersDao() {
-        return usersDao;
-    }
-
-    public TableDao getTableDao() {
-        return tableDao;
+    public ProgramRecordVO extractData(ResultSet rs) throws SQLException {
+        ProgramRecordVO vo = new ProgramRecordVO();
+        vo.setBarId(rs.getInt(BAR_ID));
+        vo.setId(rs.getInt(ID));
+        vo.setDate(rs.getDate(DAY));
+        vo.setIdUser(rs.getInt(ID_USER));
+        vo.setIdTable(rs.getInt(ID_TABLE));
+        return vo;
     }
 }

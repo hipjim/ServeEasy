@@ -11,21 +11,10 @@ import java.sql.SQLException;
  *
  */
 @Component
-class ProgramRowMapper implements RowMapper {
+class ProgramRowMapper implements RowMapper<ProgramRecordVO> {
 
-    private final WorkProgram wp;
-
-    ProgramRowMapper() {
-        this.wp = new WorkProgram();
-    }
-
-    ProgramRowMapper(WorkProgram wp) {
-        this.wp = wp;
-    }
-
-    public Object mapRow(ResultSet resultSet, int i) throws SQLException {
+    public ProgramRecordVO mapRow(ResultSet resultSet, int i) throws SQLException {
         ProgramResultSetExtractor ext = new ProgramResultSetExtractor();
-        ext.setWorkProgram(wp);
         return ext.extractData(resultSet);
     }
 }
