@@ -9,17 +9,17 @@ package com.serveeasy.model.users;
  */
 final class AdminUser extends User {
 
-    //@Override
+    @Override
     public boolean isActive() {
         return true;
     }
 
-    //@Override
+    @Override
     public boolean isAdmin() {
         return true;
     }
 
-    //@Override
+    @Override
     public boolean isWithPrivileges() {
         return true;
     }
