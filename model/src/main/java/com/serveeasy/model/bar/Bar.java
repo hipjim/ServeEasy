@@ -4,6 +4,8 @@ package com.serveeasy.model.bar;
  * User: elvis
  * Date: 11-Nov-2010
  * Time: 19:10:54
+ *
+ * todo: avem nevoie de Bar si de BarDetails?
  */
 public class Bar {
     

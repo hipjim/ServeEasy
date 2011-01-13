@@ -59,10 +59,7 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals("There should be 4 tables available tc3", 5, tc3.getTables().size());
 
 
-
-
-
-        User u1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User u1 = UsersFactory.createUser(UserType.EMPLOYEE);
         u1.setUsername("user1");
 
 
@@ -72,7 +69,7 @@ public class WorkDayTest extends AbstractTestCase {
         tc2.addTable(t7);
         tc2.addTable(t8);
         tc2.addTable(t9);
-        User u2 = new UsersFactory().createUser(UserType.ADMIN);
+        User u2 = UsersFactory.createUser(UserType.ADMIN);
         u2.setUsername("admin");
 
         wd.assignUser(u1);
@@ -84,7 +81,7 @@ public class WorkDayTest extends AbstractTestCase {
 
         assertEquals(2, wd.getUsers().size());
 
-        User u3 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User u3 = UsersFactory.createUser(UserType.EMPLOYEE);
         u3.setUsername("user 3");
 
         wd.assignUserToTables(u3, tc2);
@@ -93,12 +90,11 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(2, wd.getUsersForTable(t3).size());
 
 
-
         assertEquals(true, wd.getUsersForTable(t3).contains(u1));
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));
         assertEquals(false, wd.getUsersForTable(t3).contains(u3));
 
-        User u4 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User u4 = UsersFactory.createUser(UserType.EMPLOYEE);
         u4.setUsername("user 4");
         wd.copyUserTablesToUser(u1, u4);
 
@@ -114,7 +110,7 @@ public class WorkDayTest extends AbstractTestCase {
 
         assertEquals(3, wd.getTablesForUser(u1).getTables().size());
         assertEquals(4, wd.getUsers().size());
-        
+
         assertEquals(2, wd.getUsersForTable(t3).size());
         assertEquals(false, wd.getUsersForTable(t3).contains(u1));
         assertEquals(true, wd.getUsersForTable(t3).contains(u2));
@@ -152,10 +148,10 @@ public class WorkDayTest extends AbstractTestCase {
         tc2.addTable(t5);
 
 
-        User u1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User u1 = UsersFactory.createUser(UserType.EMPLOYEE);
         u1.setUsername("user1");
 
-        User u2 = new UsersFactory().createUser(UserType.ADMIN);
+        User u2 = UsersFactory.createUser(UserType.ADMIN);
         u2.setUsername("admin");
 
         wd.assignUserToTables(u1, tc1);
@@ -169,7 +165,7 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(4, wd.getTablesForUser(u1).getTables().size());
         assertEquals(1, wd.getUsersForTable(t1).size());
 
-         User u3 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User u3 = UsersFactory.createUser(UserType.EMPLOYEE);
         u3.setUsername("user3");
 
         wd.copyUserTablesToUser(u2, u3);
@@ -182,7 +178,6 @@ public class WorkDayTest extends AbstractTestCase {
         assertEquals(4, wd.getTablesForUser(u3).getTables().size());
         assertEquals(1, wd.getUsersForTable(t1).size());
 
-        
 
     }
 }

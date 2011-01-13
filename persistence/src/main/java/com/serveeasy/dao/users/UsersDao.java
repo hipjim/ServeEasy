@@ -12,7 +12,7 @@ public interface UsersDao {
 
     void addUser(User user);
 
-    User getUser(int id);
+    User getUser(long id);
 
     List<User> getUsers();
 
@@ -24,13 +24,13 @@ public interface UsersDao {
 
     List<User> getPrivilegedOrUnprivilegedUsers(boolean privilege);
 
-    int deleteUser(int id);
+    void deleteUser(int id);
 
-    int deleteUser(String username);
+    void deleteUser(String username);
 
-    int modifyUserActive(int id, boolean activate);
+    void modifyUserActive(long id, boolean activate);
 
-    int modifyUserPrivileges(int id, boolean privileges);
+    void modifyUserPrivileges(long id, boolean privileges);
 
-    int updateUser(int id, User user);
+    void updateUser(User user);
 }

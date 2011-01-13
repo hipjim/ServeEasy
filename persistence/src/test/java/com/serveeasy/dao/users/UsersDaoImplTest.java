@@ -27,7 +27,7 @@ public class UsersDaoImplTest extends TestCase {
     public void testAddUser() throws Exception {
         UsersFactory uf = new UsersFactory();
         User usr = uf.createUser(UserType.EMPLOYEE);
-        usr.setUsername("test_username");
+        usr.setUsername("test_username_ps");
         dao.addUser(usr);
     }
 
@@ -42,11 +42,14 @@ public class UsersDaoImplTest extends TestCase {
 //        assertEquals(dao.getPrivilegedOrUnprivilegedUsers(true).size(), 2);
 //        assertEquals(dao.getPrivilegedOrUnprivilegedUsers(false).size(), 1);
 //        assertEquals(dao.getUser("test").size(), 0);
-//        assertEquals(dao.getUser("test_username").size(), 1);
+        System.out.println(dao.getUser("test_username"));
 //        assertEquals(dao.getUsers(true,true).size(), 1);
 //        assertEquals(dao.getUsers(true,false).size(), 0);
 //        assertEquals(dao.getUsers(false,true).size(), 1);
-//        assertEquals(dao.getUsers(false,false).size(), 1);
+        System.out.println(dao.getUsers());
+
+        System.out.println(dao.getActiveOrInactiveUsers(true));
+        System.out.println(dao.getActiveOrInactiveUsers(false));
     }
 
     @Test
@@ -64,7 +67,7 @@ public class UsersDaoImplTest extends TestCase {
         usr.setPassword("testing");
         usr.setWithPrivileges(true);
 
-        dao.updateUser(8, usr);
+        dao.updateUser(usr);
     }
 
 }

@@ -1,7 +1,6 @@
 package com.serveeasy.dao.table;
 
 import com.serveeasy.dao.api.Executor;
-import com.serveeasy.model.bar.Bar;
 import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCollection;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ class TableDaoImpl extends Executor<Table> implements TableDao {
     public void delete(Table table) {
     }
 
-    public List<TableCollection> getTables(Bar bar) {
+    public List<TableCollection> getTables(long barId) {
         return null;
     }
 }

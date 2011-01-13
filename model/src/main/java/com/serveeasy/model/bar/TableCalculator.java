@@ -6,15 +6,12 @@ import com.serveeasy.model.product.Product;
 /**
  * User: cristian.popovici
  * Date: Nov 11, 2010
- * Time: 11:28:52 AM
  */
-public class TableCalculator {
+class TableCalculator {
 
-    private final Table table;
     private final TableProductHolder inventory;
 
-    public TableCalculator(Table table) {
-        this.table = table;
+    TableCalculator(Table table) {
         this.inventory = table.getProductHolder();
     }
 

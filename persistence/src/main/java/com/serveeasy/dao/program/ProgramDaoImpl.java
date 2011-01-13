@@ -1,69 +1,121 @@
 package com.serveeasy.dao.program;
 
+import com.serveeasy.dao.api.Executor;
+import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.bar.Table;
+import com.serveeasy.model.bar.TableCollection;
 import com.serveeasy.model.program.WorkDay;
 import com.serveeasy.model.program.WorkProgram;
 import com.serveeasy.model.users.User;
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
  *
  */
 @Repository(value = ProgramDao.SPRING_BEAN_NAME)
-class ProgramDaoImpl implements ProgramDao {
-    private JdbcTemplate jdbcTemplate;
-    private WorkProgram workProgram;
-    private DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd");
+class ProgramDaoImpl extends Executor implements ProgramDao {
+
+    @Autowired
+    public UsersDao usersDao;
 
     @Autowired
     public ProgramDaoImpl(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
-//        workProgram = getWorkProgram();
+        super(dataSource);
     }
 
-    //todo: getProgram
-    //todo: intreb pe cristi de performanta daca tin toate datele in WorkProgram
-    //todo: testare pentru 2 ani de zile, 5 useri pe zi, 10 mese de fiecare, get si save
 
-    public WorkProgram getWorkProgram() {
-        WorkProgram wp = new WorkProgram();
-        String query = "SELECT * FROM `serveeasy`.`program` ";
-        //todo: am voie sa folosesc asa ceva? vor fi probleme ?
-        ProgramRowMapper prm = new ProgramRowMapper(wp);
-        jdbcTemplate.query(query, prm);
-
+    public WorkProgram getDayProgram(DateTime day) {
+        FindDayProgramQuery find = new FindDayProgramQuery(day);
+        List<ProgramRecordVO> records = executeQuery(find);
+        WorkProgram wp = extractWorkProgram(records);
         return wp;
     }
 
-    //todo : tabelele de mysql trebuie puse cap la cap
+    public WorkProgram getMonthProgram(DateTime month) {
+        FindMonthProgramQuery find = new FindMonthProgramQuery(month);
+        List<ProgramRecordVO> records = executeQuery(find);
+        WorkProgram wp = extractWorkProgram(records);
+        return wp;
+    }
 
+    public WorkProgram getWorkProgram() {
+        FindProgramQuery find = new FindProgramQuery();
+        List<ProgramRecordVO> programDays = executeQuery(find);
+        WorkProgram wp = extractWorkProgram(programDays);
+        return wp;
+    }
+
+    //todo: business logic in dao - not good :-).
+    //todo: Asta ar trebui sa se faca la un nivel superior. in service
+    private WorkProgram extractWorkProgram(List<ProgramRecordVO> programDays) {
+
+        WorkProgram wp = new WorkProgram();
+
+        for (ProgramRecordVO programDay : programDays) {
+
+            DateTime dayRecord = new DateTime(programDay.getDate().getTime());
+            long userIdRecord = programDay.getIdUser();
+            User userRecord = usersDao.getUser(userIdRecord);
+            long tableIdRecord = programDay.getIdTable();
+            //todo: aici trebuie sa vina dao de la tabele
+            Table tableRecord = new Table(tableIdRecord, "e doar de test, id:" + tableIdRecord);
+
+            //if the day is not in program
+            if (!wp.getProgram().containsKey(dayRecord)) {
+                WorkDay wd = new WorkDay();
+                TableCollection tc = new TableCollection();
+                tc.addTable(tableRecord);
+                wd.assignUserToTables(userRecord, tc);
+                wp.setWorkProgramForDay(dayRecord, wd);
+            } else {
+                WorkDay wd = wp.getWorkDay(dayRecord);
+                //if workday doesn't contains user
+                if (!wd.isUserAssigned(userRecord)) {
+                    TableCollection tc = new TableCollection();
+                    tc.addTable(tableRecord);
+                    wd.assignUserToTables(userRecord, tc);
+                } else {
+                    TableCollection tc = wd.getTablesForUser(userRecord);
+                    if (!tc.contains(tableRecord)) {
+                        tc.addTable(tableRecord);
+                        wd.assignUserToTables(userRecord, tc);
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        }
+        return wp;
+    }
+
+    // todo: same business logic in dao
     public void saveWorkProgram(WorkProgram wp) {
+
         if (wp != null &&
                 wp.getProgram() != null &&
                 wp.getProgram().size() > 0) {
-            String query = "";
+
             for (Map.Entry<DateTime, WorkDay> dateAndWorkDay : wp.getProgram().entrySet()) {
                 DateTime date = dateAndWorkDay.getKey();
                 WorkDay wd = dateAndWorkDay.getValue();
                 for (User usr : wd.getUsers()) {
                     for (Table table : wd.getTablesForUser(usr).getTables()) {
-                        query = "INSERT INTO `serveeasy`.`program` " +
-                                " SET `day` = '" + dtf.print(date) + "', " +
-                                " `id_user` = " + usr.getId() + ", " +
-                                " `id_table` = " + table.getId() + "";
-                        jdbcTemplate.update(query);
+                        ProgramRecordVO vo = new ProgramRecordVO();
+                        vo.setDate(new Date(date.toDate().getTime()));
+                        vo.setIdUser(usr.getId());
+                        vo.setIdTable(table.getId());
+                        InsertProgramQuery insert = new InsertProgramQuery(vo);
+                        executeUpdate(insert);
                     }
                 }
             }
         }
     }
-
 }

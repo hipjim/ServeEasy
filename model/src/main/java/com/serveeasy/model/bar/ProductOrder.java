@@ -17,7 +17,6 @@ final class ProductOrder {
         state = State.ACTIVE;
     }
 
-
     private enum State {
         ACTIVE,
         PAYED

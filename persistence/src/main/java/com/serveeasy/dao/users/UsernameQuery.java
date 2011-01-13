@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 final class UsernameQuery extends Query<User> {
 
-    private final String QUERY = "SELECT * FROM `serveeasy`.`users` WHERE `username` = ?";
+    private final String QUERY = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `username` = ?";
 
     private final String userName;
 

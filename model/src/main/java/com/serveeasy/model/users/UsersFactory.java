@@ -2,32 +2,35 @@ package com.serveeasy.model.users;
 
 import com.serveeasy.model.exceptions.SystemException;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * This is a user factory class.
- * <p/>
- * User: elvis
- * Date: 11-Nov-2010
- * Time: 20:03:05
+ * User: cristian.popovici
  */
-public class UsersFactory {
+public final class UsersFactory {
 
-    public UsersFactory() {
+    private static final Map<UserType, Class> cache = new HashMap<UserType, Class>(2) {{
+        put(UserType.ADMIN, AdminUser.class);
+        put(UserType.EMPLOYEE, EmployeeUser.class);
+    }};
+
+    private UsersFactory() {
     }
 
-    public User createUser(UserType usr) {
-        User user = null;
-        try {
-            Class userClass = Class.forName(getUserClassName(usr.getUsertype()));
-            user = (User) userClass.newInstance();
-        } catch (Exception ex) {
-            throw new SystemException("User class unknown");
+    public static User createUser(final UserType type) {
+        final Class userClass = cache.get(type);
+
+        if (userClass == null) {
+            throw new IllegalArgumentException("Type " + type + " is not valid");
         }
-        return user;
-    }
 
-    private String getUserClassName(String usrType) {
-        return "com.serveeasy.model.users."+usrType+"User";
+        try {
+            return (User) userClass.newInstance();
+        } catch (InstantiationException e) {
+            throw new SystemException(e);
+        } catch (IllegalAccessException e) {
+            throw new SystemException(e);
+        }
     }
 }

@@ -13,6 +13,7 @@ class UserResultSetExtractor implements ResultSetExtractor<User> {
     private static final String ACTIVE = "active";
     private static final String FULLNAME = "fullname";
     private static final String ID = "id";
+    private static final String BAR_ID = "bar_id";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private static final String IS_WITH_PRIVILEGES = "is_with_privileges";
@@ -34,6 +35,7 @@ class UserResultSetExtractor implements ResultSetExtractor<User> {
         user.setUsername(rs.getString(USERNAME));
         user.setPassword(rs.getString(PASSWORD));
         user.setWithPrivileges(rs.getBoolean(IS_WITH_PRIVILEGES));
+        user.setBarId(rs.getInt(BAR_ID));
 
         return user;
     }

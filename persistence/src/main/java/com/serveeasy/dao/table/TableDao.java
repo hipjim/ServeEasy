@@ -1,6 +1,5 @@
 package com.serveeasy.dao.table;
 
-import com.serveeasy.model.bar.Bar;
 import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCollection;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +23,6 @@ public interface TableDao {
 
     public void delete(Table table);
 
-    public List<TableCollection> getTables(Bar bar);
+    public List<TableCollection> getTables(long barId);
 
 }

@@ -1,5 +1,6 @@
 package com.serveeasy.model.bar;
 
+import com.serveeasy.model.BarAware;
 import com.serveeasy.model.product.Product;
 
 import java.io.Serializable;
@@ -12,27 +13,26 @@ import java.util.List;
  * <p/>
  * Date: Nov 9, 2010
  */
-public final class Table extends Ids implements Serializable {
+public final class Table extends BarAware implements Serializable {
 
     private final int capacity;
-    private TableStatus tableStats;
-    private TableProductHolder productHolder;
+    private TableStatus status;
     private String tableName;
+
+    private TableProductHolder productHolder;
     private TableCalculator calculator;
 
     private final List<TableActivationObserver> activationObserverList;
 
     public Table(int capacity) {
-        tableStats = TableStatus.INACTIVE;
+        status = TableStatus.INACTIVE;
         this.capacity = capacity;
         activationObserverList = new ArrayList<TableActivationObserver>();
     }
 
     public Table(int capacity, String tableName) {
-        tableStats = TableStatus.INACTIVE;
+        this(capacity);
         this.tableName = tableName;
-        this.capacity = capacity;
-        activationObserverList = new ArrayList<TableActivationObserver>();
     }
 
     public int getCapacity() {
@@ -44,10 +44,10 @@ public final class Table extends Ids implements Serializable {
             throw new IllegalStateException("Table is already active");
         }
 
-        tableStats = TableStatus.ACTIVE;
-        calculator = new TableCalculator(this);
-
         productHolder = new TableProductHolder();
+
+        status = TableStatus.ACTIVE;
+        calculator = new TableCalculator(this);
 
         for (TableActivationObserver observer : activationObserverList) {
             observer.onActivation(this);
@@ -66,7 +66,7 @@ public final class Table extends Ids implements Serializable {
         calculator = null;
 
         productHolder.close();
-        tableStats = TableStatus.INACTIVE;
+        status = TableStatus.INACTIVE;
 
         for (TableActivationObserver observer : activationObserverList) {
             observer.onDeactivation(this);
@@ -85,7 +85,7 @@ public final class Table extends Ids implements Serializable {
     }
 
     public boolean isActive() {
-        return TableStatus.ACTIVE.equals(tableStats);
+        return TableStatus.ACTIVE.equals(status);
     }
 
     TableProductHolder getProductHolder() {

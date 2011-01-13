@@ -1,9 +1,10 @@
 package com.serveeasy.model.program;
 
 import com.serveeasy.model.AbstractTestCase;
-import com.serveeasy.model.users.*;
+import com.serveeasy.model.users.User;
+import com.serveeasy.model.users.UserType;
+import com.serveeasy.model.users.UsersFactory;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeField;
 import org.junit.Test;
 
 /**
@@ -17,8 +18,8 @@ public class WorkProgramTest extends AbstractTestCase {
     public void testSetWorkProgramForDayWeekAndMonth() throws Exception {
 
         WorkDay wd = new WorkDay();
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
         wd.assignUser(usr1);
         wd.assignUser(admin);
 
@@ -39,8 +40,8 @@ public class WorkProgramTest extends AbstractTestCase {
     @Test
     public void testSetWorkProgramForYear() throws Exception {
         WorkDay wd = new WorkDay();
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
         wd.assignUser(usr1);
         wd.assignUser(admin);
 
@@ -55,8 +56,8 @@ public class WorkProgramTest extends AbstractTestCase {
     @Test
     public void testCopyWorkProgramFromDayToDay() throws Exception {
         WorkDay wd = new WorkDay();
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
         wd.assignUser(usr1);
         wd.assignUser(admin);
 
@@ -78,8 +79,8 @@ public class WorkProgramTest extends AbstractTestCase {
     @Test
     public void testCopyWorkProgramFromDayToWeek() throws Exception {
         WorkDay wd = new WorkDay();
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
         wd.assignUser(usr1);
         wd.assignUser(admin);
 
@@ -103,8 +104,8 @@ public class WorkProgramTest extends AbstractTestCase {
     @Test
     public void testCopyWorkProgramFromDayToMonth() throws Exception {
         WorkDay wd = new WorkDay();
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
         wd.assignUser(usr1);
         wd.assignUser(admin);
 
@@ -133,8 +134,8 @@ public class WorkProgramTest extends AbstractTestCase {
 
     @Test
     public void testCopyWorkProgramFromWeekToWeek() throws Exception {
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
 
         WorkDay wd19 = new WorkDay();
         wd19.assignUser(usr1);
@@ -167,8 +168,8 @@ public class WorkProgramTest extends AbstractTestCase {
 
     @Test
     public void testGetWorkDay() throws Exception {
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
 
         WorkDay wd19 = new WorkDay();
         wd19.assignUser(usr1);
@@ -186,8 +187,8 @@ public class WorkProgramTest extends AbstractTestCase {
 
     @Test
     public void testGetWorkWeekAndMonth() throws Exception {
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
 
         WorkDay wd19 = new WorkDay();
         wd19.assignUser(usr1);
@@ -212,8 +213,8 @@ public class WorkProgramTest extends AbstractTestCase {
 
     @Test
     public void testRemove() throws Exception {
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
 
         WorkDay wd19 = new WorkDay();
         wd19.assignUser(usr1);
@@ -245,10 +246,6 @@ public class WorkProgramTest extends AbstractTestCase {
         wp.removeWorkMonth(date1);
         assertEquals(0, wp.getWorkMonth(date1).size());
 
-
-
-
     }
-
 
 }

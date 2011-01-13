@@ -8,14 +8,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
 /**
- * User: cristian.popovici
+ *
  */
-final class FindAllUsersQuery extends Query<User> {
+final class FindActiveUsersQuery extends Query<User> {
 
-    private final static String query = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` ";
+    private final static String query = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `active` = ?";
 
+    private boolean active;
+
+    public FindActiveUsersQuery(boolean active) {
+        this.active = active;
+    }
 
     @Override
     public RowMapper<User> getRowMapper() {
@@ -24,6 +28,9 @@ final class FindAllUsersQuery extends Query<User> {
 
     @Override
     protected PreparedStatement getPreparedStatement(Connection connection) throws SQLException {
-        return connection.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setBoolean(1, active);
+
+        return ps;
     }
 }

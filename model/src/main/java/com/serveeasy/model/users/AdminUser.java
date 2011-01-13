@@ -7,7 +7,7 @@ package com.serveeasy.model.users;
  * Date: 11-Nov-2010
  * Time: 19:15:50
  */
-class AdminUser extends User {
+final class AdminUser extends User {
 
     //@Override
     public boolean isActive() {

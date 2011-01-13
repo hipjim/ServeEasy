@@ -32,9 +32,13 @@ public class WorkDay {
         userTables.put(user, createCopyTableCollection(tables));
     }
 
-     public boolean isUserAssignedToTable(User user, Table table) {
+    public boolean isUserAssignedToTable(User user, Table table) {
         TableCollection collection = userTables.get(user);
         return collection != null && collection.contains(table);
+    }
+
+    public boolean isUserAssigned(User user) {
+        return userTables.containsKey(user);
     }
 
     public TableCollection getTablesForUser(User user) {

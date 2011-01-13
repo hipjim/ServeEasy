@@ -14,11 +14,9 @@ public class CategoryTest extends AbstractTestCase {
         Category middleCategory = new DefaultCategory("Alcoholic", endCategory);
         Category someCategory = new DefaultCategory("Beer", middleCategory);
 
-
         Money sellPrice = Money.newAmount(10);
         Money entryPrice = Money.newAmount(10);
         Product product = new DefaultProduct("Timisoreana", "Bere locala", someCategory, sellPrice, entryPrice);
-
 
         assertEquals(someCategory, product.getCategory());
         assertEquals(middleCategory, product.getCategory().getParent());

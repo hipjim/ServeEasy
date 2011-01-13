@@ -3,12 +3,8 @@ package com.serveeasy.model.product;
 import com.serveeasy.model.AbstractTestCase;
 
 import java.math.BigDecimal;
-import java.util.Currency;
-import java.util.Locale;
 
 public class AmmountTest extends AbstractTestCase {
-
-    private Currency currency = Currency.getInstance(Locale.UK);
 
     public void testAddAmmount() throws Exception {
 
