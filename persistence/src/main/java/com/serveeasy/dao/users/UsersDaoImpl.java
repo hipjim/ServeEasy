@@ -61,12 +61,12 @@ class UsersDaoImpl extends Executor<User> implements UsersDao {
         executeUpdate(delete);
     }
 
-    public void modifyUserActive(int id, boolean activate) {
+    public void modifyUserActive(long id, boolean activate) {
         UpdateActiveQuery update = new UpdateActiveQuery(id, activate);
         executeUpdate(update);
     }
 
-    public void modifyUserPrivileges(int id, boolean privileges) {
+    public void modifyUserPrivileges(long id, boolean privileges) {
         UpdatePrivilegesQuery update = new UpdatePrivilegesQuery(id, privileges);
         executeUpdate(update);
     }

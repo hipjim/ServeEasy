@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,22 +17,28 @@ import java.util.List;
 class TableDaoImpl extends Executor<Table> implements TableDao {
 
     @Autowired
-    public TableDaoImpl(DataSource dataSource) {
+    TableDaoImpl(DataSource dataSource) {
         super(dataSource);
     }
 
-
     public Table find(long tableId) {
-        return null;
+        return executeQuery(new FindTable(tableId)).get(0);
     }
 
-    public void merge(Table table) {
+    public void insert(Table table) {
+        executeUpdate(new InsertTable(table));
     }
 
-    public void delete(Table table) {
+    public void update(Table table) {
+        executeUpdate(new UpdateTable(table));
     }
 
-    public List<TableCollection> getTables(long barId) {
-        return null;
+    public void delete(long id) {
+        executeUpdate(new DeleteTable(id));
+    }
+
+    public TableCollection getTables(long barId) {
+        List<Table> result = executeQuery(new FindBarTables(barId));
+        return new TableCollection(new HashSet(result));
     }
 }

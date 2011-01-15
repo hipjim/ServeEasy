@@ -20,13 +20,12 @@ class UserResultSetExtractor implements ResultSetExtractor<User> {
     private static final String IS_ADMIN = "is_admin";
 
     public User extractData(ResultSet rs) throws SQLException {
-        UsersFactory uf = new UsersFactory();
         User user;
 
         if (rs.getBoolean(IS_ADMIN) == true) {
-            user = uf.createUser(UserType.ADMIN);
+            user = UsersFactory.createUser(UserType.ADMIN);
         } else {
-            user = uf.createUser(UserType.EMPLOYEE);
+            user = UsersFactory.createUser(UserType.EMPLOYEE);
         }
 
         user.setActive(rs.getBoolean(ACTIVE));

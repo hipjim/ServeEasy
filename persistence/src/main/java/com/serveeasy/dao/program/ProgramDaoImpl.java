@@ -54,6 +54,7 @@ class ProgramDaoImpl extends Executor implements ProgramDao {
 
     //todo: business logic in dao - not good :-).
     //todo: Asta ar trebui sa se faca la un nivel superior. in service
+
     private WorkProgram extractWorkProgram(List<ProgramRecordVO> programDays) {
 
         WorkProgram wp = new WorkProgram();
@@ -65,7 +66,8 @@ class ProgramDaoImpl extends Executor implements ProgramDao {
             User userRecord = usersDao.getUser(userIdRecord);
             long tableIdRecord = programDay.getIdTable();
             //todo: aici trebuie sa vina dao de la tabele
-            Table tableRecord = new Table(tableIdRecord, "e doar de test, id:" + tableIdRecord);
+            Table tableRecord = new Table(5, "e doar de test, id:" + tableIdRecord);
+            tableRecord.setId(tableIdRecord);
 
             //if the day is not in program
             if (!wp.getProgram().containsKey(dayRecord)) {
@@ -96,6 +98,7 @@ class ProgramDaoImpl extends Executor implements ProgramDao {
     }
 
     // todo: same business logic in dao
+
     public void saveWorkProgram(WorkProgram wp) {
 
         if (wp != null &&

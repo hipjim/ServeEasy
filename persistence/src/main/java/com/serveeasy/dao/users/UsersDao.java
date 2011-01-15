@@ -24,7 +24,7 @@ public interface UsersDao {
 
     List<User> getPrivilegedOrUnprivilegedUsers(boolean privilege);
 
-    void deleteUser(int id);
+    void deleteUser(long id);
 
     void deleteUser(String username);
 

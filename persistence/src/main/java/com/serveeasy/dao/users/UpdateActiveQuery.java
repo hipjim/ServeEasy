@@ -14,9 +14,9 @@ public class UpdateActiveQuery extends Update {
     private static final String query = "UPDATE `serveeasy`.`users` SET `active` = ? WHERE `id` = ?";
 
     private boolean active;
-    private int id;
+    private long id;
 
-    UpdateActiveQuery(int id, boolean active) {
+    UpdateActiveQuery(long id, boolean active) {
         this.active = active;
         this.id = id;
     }
@@ -26,7 +26,7 @@ public class UpdateActiveQuery extends Update {
             throws SQLException {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setBoolean(1, active);
-        ps.setInt(2, id);
+        ps.setLong(2, id);
         return ps;
     }
 }

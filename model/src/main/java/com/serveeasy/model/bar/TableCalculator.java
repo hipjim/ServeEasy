@@ -7,7 +7,7 @@ import com.serveeasy.model.product.Product;
  * User: cristian.popovici
  * Date: Nov 11, 2010
  */
-class TableCalculator {
+public class TableCalculator {
 
     private final TableProductHolder inventory;
 

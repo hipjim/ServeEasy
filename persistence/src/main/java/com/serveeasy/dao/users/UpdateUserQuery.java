@@ -30,7 +30,7 @@ public class UpdateUserQuery extends Update {
         ps.setBoolean(4, user.isAdmin());
         ps.setBoolean(5, user.isActive());
         ps.setBoolean(6, user.isWithPrivileges());
-        ps.setInt(7, user.getId());
+        ps.setLong(7, user.getId());
 
         return ps;
     }

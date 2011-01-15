@@ -14,9 +14,9 @@ public class UpdatePrivilegesQuery extends Update {
     private static final String query = "UPDATE `serveeasy`.`users` SET `is_with_privileges` = ? WHERE `id` = ?";
 
     private boolean is_with_privileges;
-    private int id;
+    private long id;
 
-    UpdatePrivilegesQuery(int id, boolean is_with_privileges) {
+    UpdatePrivilegesQuery(long id, boolean is_with_privileges) {
         this.is_with_privileges = is_with_privileges;
         this.id = id;
     }
@@ -26,7 +26,7 @@ public class UpdatePrivilegesQuery extends Update {
             throws SQLException {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setBoolean(1, is_with_privileges);
-        ps.setInt(2, id);
+        ps.setLong(2, id);
         return ps;
     }
 }

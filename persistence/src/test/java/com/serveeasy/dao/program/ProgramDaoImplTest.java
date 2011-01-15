@@ -67,9 +67,9 @@ public class ProgramDaoImplTest extends TestCase {
         tc3.addTable(t5);
 
         WorkDay wd = new WorkDay();
-        User usr1 = new UsersFactory().createUser(UserType.EMPLOYEE);
+        User usr1 = UsersFactory.createUser(UserType.EMPLOYEE);
         usr1.setId(1);
-        User admin = new UsersFactory().createUser(UserType.ADMIN);
+        User admin = UsersFactory.createUser(UserType.ADMIN);
         admin.setId(2);
         wd.assignUserToTables(usr1, tc1);
         wd.assignUserToTables(admin, tc3);

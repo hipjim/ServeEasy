@@ -16,7 +16,7 @@ public class UsersDaoImplTest extends TestCase {
 
     @Before
     public void setUp() {
-       ApplicationContext ctx = new ClassPathXmlApplicationContext("com/serveeasy/context/applicationContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("com/serveeasy/context/applicationContext.xml");
 
 
         DaoRepository repository = (DaoRepository) ctx.getBean("daoRepository");
@@ -25,8 +25,7 @@ public class UsersDaoImplTest extends TestCase {
 
     @Test
     public void testAddUser() throws Exception {
-        UsersFactory uf = new UsersFactory();
-        User usr = uf.createUser(UserType.EMPLOYEE);
+        User usr = UsersFactory.createUser(UserType.EMPLOYEE);
         usr.setUsername("test_username_ps");
         dao.addUser(usr);
     }
@@ -59,8 +58,7 @@ public class UsersDaoImplTest extends TestCase {
 
     @Test
     public void testUpdate() {
-        UsersFactory uf = new UsersFactory();
-        User usr = uf.createUser(UserType.EMPLOYEE);
+        User usr = UsersFactory.createUser(UserType.EMPLOYEE);
         usr.setUsername("test_username");
         usr.setFullname("tralala");
         usr.setActive(true);

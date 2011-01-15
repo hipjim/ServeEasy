@@ -4,8 +4,6 @@ import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCollection;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * Created by IntelliJ IDEA.
  * User: cristian.popovici
@@ -17,12 +15,14 @@ public interface TableDao {
 
     public static final String SPRING_BEAN_NAME = "tableDao";
 
-    public Table find(long tableId);
+    public Table find(final long tableId);
 
-    public void merge(Table table);
+    public void insert(final Table table);
 
-    public void delete(Table table);
+    public void update(final Table table);
 
-    public List<TableCollection> getTables(long barId);
+    public void delete(final long id);
+
+    public TableCollection getTables(final long barId);
 
 }
