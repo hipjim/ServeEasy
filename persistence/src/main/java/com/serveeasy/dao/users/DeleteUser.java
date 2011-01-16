@@ -1,4 +1,4 @@
-package com.serveeasy.dao.bar;
+package com.serveeasy.dao.users;
 
 import com.serveeasy.dao.api.Update;
 
@@ -7,15 +7,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- *  todo: redenimit in DeleteBarDetails
+ *
  */
-class DeleteBarDetailsQuery extends Update {
+final class DeleteUser extends Update {
 
-    private static final String query = "DELETE FROM `serveeasy`.`bar_details` WHERE `id` = ?";
+    private static final String query = "DELETE FROM `serveeasy`.`users` WHERE `id` = ?";
 
-    private final int id;
+    private final long id;
 
-    DeleteBarDetailsQuery(int id) {
+    DeleteUser(long id) {
         this.id = id;
     }
 
@@ -23,8 +23,7 @@ class DeleteBarDetailsQuery extends Update {
     protected PreparedStatement getPreparedStatement(Connection connection)
             throws SQLException {
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, id);
-
+        ps.setLong(1, id);
         return ps;
     }
 }

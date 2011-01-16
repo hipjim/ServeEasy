@@ -11,14 +11,14 @@ import java.sql.SQLException;
 /**
  * User: cristian.popovici
  */
-final class UsernameQuery extends Query<User> {
+final class FindUser extends Query<User> {
 
-    private final String QUERY = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `username` = ?";
+    private static final String QUERY = "SELECT `id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `id` = ?";
 
-    private final String userName;
+    private final long id;
 
-    UsernameQuery(String userName) {
-        this.userName = userName;
+    FindUser(long id) {
+        this.id = id;
     }
 
     @Override
@@ -27,10 +27,9 @@ final class UsernameQuery extends Query<User> {
     }
 
     @Override
-    protected PreparedStatement getPreparedStatement(Connection connection)
-            throws SQLException {
+    protected PreparedStatement getPreparedStatement(Connection connection) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(QUERY);
-        ps.setString(1, userName);
+        ps.setLong(1, id);
 
         return ps;
     }

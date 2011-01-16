@@ -1,6 +1,7 @@
 package com.serveeasy.dao.api;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -21,6 +22,10 @@ public abstract class Executor<T> {
 
     public List<T> executeQuery(final Query<T> command) {
         return template.query(command.prepareStatement(), command.getRowMapper());
+    }
+
+    public T executeFind(final Find<T> command) {
+        return template.query(command.prepareStatement(), command.getResultSetExtractor());
     }
 
     public void executeUpdate(final Update command) {

@@ -12,9 +12,9 @@ import java.sql.SQLException;
 /**
  * User: cristian.popovici
  */
-final class FindAllUsersQuery extends Query<User> {
+final class FindAllUsers extends Query<User> {
 
-    private final static String query = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` ";
+    private final static String query = "SELECT `id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` ";
 
 
     @Override

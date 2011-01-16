@@ -1,6 +1,7 @@
 package com.serveeasy.dao.program;
 
 import com.serveeasy.dao.api.Query;
+import com.serveeasy.model.program.ProgramEntry;
 import org.joda.time.DateTime;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -10,21 +11,21 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * todo; redenumit in FindDayProgram
+ *
  */
-final class FindDayProgramQuery extends Query<ProgramRecordVO> {
+final class FindDayProgramEntries extends Query<ProgramEntry> {
 
-    private final static String query = "SELECT `bar_id`,`id`,`day`,`id_user`,`id_table` FROM `serveeasy`.`program` WHERE `day` = ?";
+    private final static String query = "SELECT `id`,`bar_id`,`day`,`id_user`,`id_table` FROM `serveeasy`.`program` WHERE `day` = ?";
 
     private final DateTime day;
 
-    FindDayProgramQuery(DateTime day) {
+    FindDayProgramEntries(DateTime day) {
         this.day = day;
     }
 
     @Override
-    public RowMapper<ProgramRecordVO> getRowMapper() {
-        return new ProgramRowMapper();
+    public RowMapper<ProgramEntry> getRowMapper() {
+        return new ProgramEntryRowMapper();
     }
 
     @Override

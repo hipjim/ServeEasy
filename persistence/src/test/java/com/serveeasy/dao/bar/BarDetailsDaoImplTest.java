@@ -35,21 +35,21 @@ public class BarDetailsDaoImplTest {
         BarDetails bd = new BarDetails();
         bd.setBarName("testing bar");
         bd.setEmail("test@sss.com");
-        File f = new File("C:\\Users\\eu\\Desktop\\3.png");
+        File f = new File("C:\\Users\\eu\\Desktop\\3.jpg");
         byte[] content = new byte[(int)f.length()];
         new FileInputStream(f).read(content);
         bd.setImageFileContent(content);
         bd.setImageName(f.getName());
         bd.setImageFileMimeType(new MimetypesFileTypeMap().getContentType(f));
 
-        dao.addBarDetails(bd);
+        dao.insert(bd);
 
     }
 
     @Test
     public void testModifyBarDetails() throws Exception {
         BarDetails bd = new BarDetails();
-        bd.setId(7);
+        bd.setId(2);
         bd.setBarName("testing bar updated");
         bd.setEmail("test updated@sss.com");
         File f = new File("C:\\Users\\eu\\Desktop\\4.jpg");
@@ -60,12 +60,12 @@ public class BarDetailsDaoImplTest {
         bd.setImageFileMimeType(new MimetypesFileTypeMap().getContentType(f));
 
 
-        dao.modifyBarDetails(bd);
+        dao.update(bd);
     }
 
     @Test
     public void testFindBarDetails() throws Exception {
-        BarDetails bd = dao.findBarDetails(7);
+        BarDetails bd = dao.find(2);
         System.out.println(bd);
         System.out.println(bd.getImageFileContent().length);
     }
@@ -73,6 +73,6 @@ public class BarDetailsDaoImplTest {
 
     @Test
     public void testDelete() throws Exception {
-                          dao.deleteBarDetails(5);
+                          dao.delete(2);
     }
 }

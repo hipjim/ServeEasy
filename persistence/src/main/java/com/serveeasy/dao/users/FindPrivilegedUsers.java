@@ -11,12 +11,12 @@ import java.sql.SQLException;
 /**
  *
  */
-final class FindPrivilegedUsersQuery extends Query<User> {
-     private final static String query = "SELECT `bar_id`,`id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `is_with_privileges` = ?";
+final class FindPrivilegedUsers extends Query<User> {
+     private final static String query = "SELECT `id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` WHERE `is_with_privileges` = ?";
 
     private boolean is_with_privileges;
 
-    public FindPrivilegedUsersQuery(boolean is_with_privileges) {
+    public FindPrivilegedUsers(boolean is_with_privileges) {
         this.is_with_privileges = is_with_privileges;
     }
 

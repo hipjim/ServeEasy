@@ -1,18 +1,18 @@
 package com.serveeasy.model.bar;
 
 import com.serveeasy.model.BarAware;
+import com.serveeasy.model.DomainObject;
 
 /**
  * User: elvis
  * Date: 11-Nov-2010
  * Time: 19:11:22
  */
-public class BarDetails extends BarAware {
+public class BarDetails extends DomainObject {
 
     private String imageName;
     private byte[] imageFileContent;
     private String imageFileMimeType;
-    //todo: ar fi bine sa ne definim o clasa Email
     private String email;
     private String barName;
     private String country;

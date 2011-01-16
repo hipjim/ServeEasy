@@ -21,58 +21,38 @@ class UsersDaoImpl extends Executor<User> implements UsersDao {
         executeUpdate(insertCommand);
     }
 
-    public User getUser(long id) {
-        final UserQuery query = new UserQuery(id);
+    public User findUser(long id) {
+        final FindUser query = new FindUser(id);
         return executeQuery(query).get(0);
     }
 
-    public User getUser(String username) {
-        final UsernameQuery command = new UsernameQuery(username);
-        return executeQuery(command).get(0);
-    }
-
     public List<User> getUsers() {
-        FindAllUsersQuery command = new FindAllUsersQuery();
+        FindAllUsers command = new FindAllUsers();
         return executeQuery(command);
     }
 
     public List<User> getUsers(boolean active, boolean privilege) {
-        FindActivePrivilegedUsersQuery comm = new FindActivePrivilegedUsersQuery(active, privilege);
+        FindActivePrivilegedUsers comm = new FindActivePrivilegedUsers(active, privilege);
         return executeQuery(comm);
     }
 
     public List<User> getActiveOrInactiveUsers(boolean active) {
-        FindActiveUsersQuery command = new FindActiveUsersQuery(active);
+        FindActiveUsers command = new FindActiveUsers(active);
         return executeQuery(command);
     }
 
     public List<User> getPrivilegedOrUnprivilegedUsers(boolean privilege) {
-        FindPrivilegedUsersQuery comm = new FindPrivilegedUsersQuery(privilege);
+        FindPrivilegedUsers comm = new FindPrivilegedUsers(privilege);
         return executeQuery(comm);
     }
 
     public void deleteUser(long id) {
-        DeleteUserQuery delete = new DeleteUserQuery(id);
+        DeleteUser delete = new DeleteUser(id);
         executeUpdate(delete);
-    }
-
-    public void deleteUser(String username) {
-        DeleteUsernameQuery delete = new DeleteUsernameQuery(username);
-        executeUpdate(delete);
-    }
-
-    public void modifyUserActive(long id, boolean activate) {
-        UpdateActiveQuery update = new UpdateActiveQuery(id, activate);
-        executeUpdate(update);
-    }
-
-    public void modifyUserPrivileges(long id, boolean privileges) {
-        UpdatePrivilegesQuery update = new UpdatePrivilegesQuery(id, privileges);
-        executeUpdate(update);
     }
 
     public void updateUser(User user) {
-        UpdateUserQuery update = new UpdateUserQuery(user);
+        UpdateUser update = new UpdateUser(user);
         executeUpdate(update);
     }
 }

@@ -1,6 +1,7 @@
 package com.serveeasy.dao.bar;
 
 import com.serveeasy.model.bar.BarDetails;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
 import java.io.File;
 import java.sql.ResultSet;
@@ -9,9 +10,8 @@ import java.sql.SQLException;
 /**
  *
  */
-class BarDetailsResultSetExtractor {
+class BarDetailsResultSetExtractor implements ResultSetExtractor<BarDetails> {
 
-    private static final String BAR_ID = "bar_id";
     private static final String ID = "id";
     private static final String IMAGE_NAME = "image_name";
     private static final String IMAGE_FILE_CONTENT = "image_file_content";
@@ -26,9 +26,9 @@ class BarDetailsResultSetExtractor {
 
 
     public BarDetails extractData(ResultSet rs) throws SQLException {
+        if (!rs.next()) { return null;}
         BarDetails bd = new BarDetails();
-        bd.setBarId(rs.getInt(BAR_ID));
-        bd.setId(rs.getInt(ID));
+        bd.setId(rs.getLong(ID));
         bd.setImageName(rs.getString(IMAGE_NAME));
         bd.setImageFileContent(rs.getBytes(IMAGE_FILE_CONTENT));
         bd.setImageFileMimeType(rs.getString(IMAGE_FILE_MIME_TYPE));

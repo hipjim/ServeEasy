@@ -10,13 +10,13 @@ import java.sql.SQLException;
 /**
  *
  */
-public class UpdateUserQuery extends Update {
+class UpdateUser extends Update {
 
     private static final String query = "UPDATE `serveeasy`.`users` SET `username` = ?, `password` = ?, `fullname` = ?, `is_admin` = ?, `active` = ?, `is_with_privileges` = ? WHERE `id` = ?";
 
     private User user;
 
-    UpdateUserQuery(User user) {
+    UpdateUser(User user) {
         this.user = user;
     }
 
@@ -31,7 +31,6 @@ public class UpdateUserQuery extends Update {
         ps.setBoolean(5, user.isActive());
         ps.setBoolean(6, user.isWithPrivileges());
         ps.setLong(7, user.getId());
-
         return ps;
     }
 }

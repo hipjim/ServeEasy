@@ -11,15 +11,11 @@ public interface BarDetailsDao {
 
     public static final String SPRING_BEAN_NAME = "barDetailsDao";
 
-    //todo: redenumin in insert()
-    void addBarDetails(BarDetails barDetails);
+    void insert(BarDetails barDetails);
 
-    //todo: hai sa redenumim in update()
-    void modifyBarDetails(BarDetails barDetails);
+    void update(BarDetails barDetails);
 
-    //todo: redenumim in find()
-    BarDetails findBarDetails(int id);
+    BarDetails find(long id);
 
-    //todo: redenumin in delete()
-    void deleteBarDetails(int id);
+    void delete(long id);
 }
