@@ -1,10 +1,12 @@
-package com.serveeasy.model;
+package com.serveeasy.model.product;
 
+import com.serveeasy.model.AbstractTestCase;
 import com.serveeasy.model.bar.Table;
 import com.serveeasy.model.bar.TableCalculator;
 import com.serveeasy.model.product.DefaultProduct;
 import com.serveeasy.model.product.Money;
 import com.serveeasy.model.product.Product;
+import org.junit.Test;
 
 /**
  * User: cristian.popovici
@@ -13,6 +15,7 @@ import com.serveeasy.model.product.Product;
  */
 public class ProductTest extends AbstractTestCase {
 
+    @Test
     public void testTableInventory() throws Exception {
 
         Table table = new Table(5);

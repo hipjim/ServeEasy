@@ -1,27 +1,16 @@
 package com.serveeasy.dao.users;
 
-import com.serveeasy.dao.DaoRepository;
+import com.serveeasy.dao.AbstractSpringTestCase;
 import com.serveeasy.model.users.User;
 import com.serveeasy.model.users.UserType;
 import com.serveeasy.model.users.UsersFactory;
-import junit.framework.TestCase;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class UsersDaoImplTest extends TestCase {
+public class UsersDaoImplTest extends AbstractSpringTestCase {
 
+    @Autowired
     private UsersDao dao;
-
-    @Before
-    public void setUp() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("com/serveeasy/context/applicationContext.xml");
-
-
-        DaoRepository repository = (DaoRepository) ctx.getBean("daoRepository");
-        dao = repository.getUsersDao();
-    }
 
     @Test
     public void testAddUser() throws Exception {
