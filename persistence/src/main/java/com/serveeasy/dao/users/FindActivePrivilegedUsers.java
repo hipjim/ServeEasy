@@ -18,7 +18,7 @@ final class FindActivePrivilegedUsers extends Query<User> {
     private final boolean active;
     private final boolean isWithPrivileges;
 
-    public FindActivePrivilegedUsers(boolean active, boolean isWithPrivileges) {
+    FindActivePrivilegedUsers(boolean active, boolean isWithPrivileges) {
         this.active = active;
         this.isWithPrivileges = isWithPrivileges;
     }

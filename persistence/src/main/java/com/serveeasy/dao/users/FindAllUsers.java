@@ -16,7 +16,6 @@ final class FindAllUsers extends Query<User> {
 
     private final static String query = "SELECT `id`,`username`,`password`,`fullname`,`is_admin`,`active`,`is_with_privileges` FROM `serveeasy`.`users` ";
 
-
     @Override
     public RowMapper<User> getRowMapper() {
         return new UserRowMapper();

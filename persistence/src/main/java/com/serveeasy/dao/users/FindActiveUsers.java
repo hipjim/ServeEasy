@@ -17,7 +17,7 @@ final class FindActiveUsers extends Query<User> {
 
     private final boolean active;
 
-    public FindActiveUsers(boolean active) {
+    FindActiveUsers(boolean active) {
         this.active = active;
     }
 

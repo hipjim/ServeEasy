@@ -2,12 +2,12 @@ package com.serveeasy.dao.bar;
 
 import com.serveeasy.dao.AbstractSpringTestCase;
 import com.serveeasy.model.bar.BarDetails;
+import com.serveeasy.utils.file.FileUtils;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.activation.MimetypesFileTypeMap;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.InputStream;
 
 /**
  *
@@ -17,18 +17,22 @@ public class BarDetailsDaoImplTest extends AbstractSpringTestCase {
     @Autowired
     private BarDetailsDao dao;
 
+    private byte[] imageContent;
+
+    @Before
+    public void init() {
+        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("HardRockCafe.jpg");
+        imageContent = FileUtils.open(in).toByteArray();
+    }
+
     @Test
     public void testAddBarDetails() throws Exception {
-
         BarDetails bd = new BarDetails();
         bd.setBarName("testing bar");
         bd.setEmail("test@sss.com");
-        File f = new File("C:\\Users\\eu\\Desktop\\3.jpg");
-        byte[] content = new byte[(int) f.length()];
-        new FileInputStream(f).read(content);
-        bd.setImageFileContent(content);
-        bd.setImageName(f.getName());
-        bd.setImageFileMimeType(new MimetypesFileTypeMap().getContentType(f));
+        bd.setImageFileContent(imageContent);
+        bd.setImageName("Test name");
+        bd.setImageFileMimeType("img/jpg");
 
         dao.insert(bd);
 
@@ -40,12 +44,9 @@ public class BarDetailsDaoImplTest extends AbstractSpringTestCase {
         bd.setId(2);
         bd.setBarName("testing bar updated");
         bd.setEmail("test updated@sss.com");
-        File f = new File("C:\\Users\\eu\\Desktop\\4.jpg");
-        byte[] content = new byte[(int) f.length()];
-        new FileInputStream(f).read(content);
-        bd.setImageFileContent(content);
-        bd.setImageName(f.getName());
-        bd.setImageFileMimeType(new MimetypesFileTypeMap().getContentType(f));
+        bd.setImageFileContent(imageContent);
+        bd.setImageName("Test name");
+        bd.setImageFileMimeType("img/jpg");
 
 
         dao.update(bd);

@@ -1,9 +1,7 @@
 package com.serveeasy.dao.program;
 
 import com.serveeasy.dao.api.Executor;
-import com.serveeasy.dao.users.UsersDao;
 import com.serveeasy.model.program.ProgramEntry;
-import com.serveeasy.model.program.WorkProgram;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,7 +19,6 @@ class ProgramEntryDaoImpl extends Executor<ProgramEntry> implements ProgramEntry
     public ProgramEntryDaoImpl(DataSource dataSource) {
         super(dataSource);
     }
-
 
     public List<ProgramEntry> getDayProgramEntries(DateTime day) {
         FindDayProgramEntries find = new FindDayProgramEntries(day);
